@@ -5,9 +5,7 @@ import java.util.*;
 
 /**
  * @author Martins Buhanovskis
- * <p>
  * Ticket class.
- * <p>
  * Ticket:
  * * ticket output: ticketOutput(type,date)
  * * add ticket: addTicket(Ticket ticket)
@@ -32,6 +30,10 @@ public class Ticket {
         return animalZone.getZone();
     }
 
+    /**
+     * Method that determind if ticket is valid
+     * @return true - if ticket is active, false - if ticket is not active
+     */
     public boolean isTicketValid() {
         if (purchaseDate != Calendar.getInstance().getTime()) {
             return true;
@@ -40,6 +42,9 @@ public class Ticket {
         }
     }
 
+    /**
+     * Method that shows information about tickets zone and state
+     */
     public void printTicketStatus() {
         System.out.println("Your " + animalZone.getZone() + " zone ticket is active: " + isTicketValid());
     }
@@ -49,7 +54,6 @@ public class Ticket {
         this.purchaseDate = builder.purchaseDate;
         this.price = builder.price;
     }
-
 
     public static class TicketBuilder {
         private static AnimalZone animalZone = new AnimalZone();

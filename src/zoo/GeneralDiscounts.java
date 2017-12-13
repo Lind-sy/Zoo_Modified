@@ -38,6 +38,10 @@ public class GeneralDiscounts {
 		}
 	}
 
+	/**
+	 * Method that defines available discounts that can be applied for ticket price
+	 * @return Map of defined discounts
+	 */
 	public static Map<Integer, Double> setAvailableDiscounts() {
 		Map<Integer, Double> discountMap =  new HashMap<>();
 		discountMap.put(10,0.10);

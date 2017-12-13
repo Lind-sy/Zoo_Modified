@@ -14,14 +14,9 @@ public class AnimalZone {
     private String zone;
     private static final Map<String, String> availableZoneList = setDefaultZoneMap();
 
-//    public AnimalZone(String zone) {
-//        setZone(zone);
-//    }
-
     public Map<String, String> getAvailableZoneList() {
         return availableZoneList;
     }
-
 
     public String getZone() {
         if (!zone.isEmpty()) {
@@ -42,19 +37,19 @@ public class AnimalZone {
     }
 
     AnimalZone() {
-            }
+    }
 
     /**
-     * creates list of animal zones in zoo
-     * @return list
+     * Method that defines default animal zones available for visitor
+     * @return Map of Zoo animalZones
      */
     private static Map<String, String> setDefaultZoneMap() {
         Map<String, String> animalZoneMap1 = new HashMap<String, String>();
-        animalZoneMap1.put("General","name" );
-        animalZoneMap1.put("Reptile house","name");
-        animalZoneMap1.put("Butterfly","name");
-        animalZoneMap1.put("Insect","name");
-        animalZoneMap1.put("Petting","name");
+        animalZoneMap1.put("General", "name");
+        animalZoneMap1.put("Reptile house", "name");
+        animalZoneMap1.put("Butterfly", "name");
+        animalZoneMap1.put("Insect", "name");
+        animalZoneMap1.put("Petting", "name");
         return animalZoneMap1;
     }
 }

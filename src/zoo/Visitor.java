@@ -54,6 +54,11 @@ public class Visitor{
 		return voucherList;
 	}
 
+	/**
+	 * Method that finds user voucher based on Voucher code
+	 * @param code - Voucher code
+	 * @return Voucher
+	 */
 	public Voucher findVoucher(String code){
 		for (Voucher v: voucherList) {
 			if(v.getCode().equals(code)){
@@ -69,6 +74,11 @@ public class Visitor{
 		voucherList.add(voucher);
 	}
 
+	/**
+	 * Method that returns users voucher code
+	 * @param index - voucher index in user voucher list
+	 * @return code of voucher
+	 */
 	public String getVoucherCode(int index){
 		if(voucherList.size()>=index) {
 			return voucherList.get(index-1).getCode();
@@ -77,9 +87,11 @@ public class Visitor{
 		}
 	}
 
+	/**
+	 * Method that adds ticket to user ticket list
+	 * @param ticket
+	 */
 	public void addTicket(Ticket ticket) {
 		ticketList.add(ticket);
 	}
-
-
 }

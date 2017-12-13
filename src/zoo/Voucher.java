@@ -24,6 +24,10 @@ public class Voucher {
         this.code = genCode();
     }
 
+    /**
+     * Method that generates voucher code form random letters and numbers
+     * @return voucher code
+     */
     private String genCode() {
         String candidateChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         int length = 10;

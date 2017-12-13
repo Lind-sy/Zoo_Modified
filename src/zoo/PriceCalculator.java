@@ -21,7 +21,6 @@ public class PriceCalculator implements PriceCalculationService{
                         else if(zone.equals("Petting")){
                 this.totalPrice = 30.00;
             }
-
     }
 
     @Override

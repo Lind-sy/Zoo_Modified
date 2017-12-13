@@ -44,8 +44,8 @@ public class HumanCatorgorys {
 	}
 
 	/**
-	 * Human status list
-	 * @return list
+	 * Method that defines available human statuses
+	 * @return Map of human categories
 	 */
 	private static Map<String, String> defaultHumanCategoryMap() {
         Map<String, String> statusMap1 = new HashMap<String, String>();
