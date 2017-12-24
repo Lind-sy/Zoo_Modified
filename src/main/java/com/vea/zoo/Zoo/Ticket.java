@@ -1,5 +1,6 @@
 package com.vea.zoo.Zoo;
 
+import javax.persistence.*;
 import java.text.DecimalFormat;
 import java.util.*;
 
@@ -12,10 +13,19 @@ import java.util.*;
  * * get tickets: getTickets()
  * * ticket builder(nested class Builder)
  */
+
+@Entity
+@Table(name = "ticket")
 public class Ticket {
 
-    private static AnimalZone animalZone = new AnimalZone();
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(name = "animalZone")
+    private Long  animalZoneId ;
+    @Column(name = "purchaseDate")
     private Date purchaseDate;
+    @Column(name = "price")
     private double price;
 
     public double getPrice() {
@@ -26,8 +36,8 @@ public class Ticket {
         return purchaseDate;
     }
 
-    public String getAnimalZone() {
-        return animalZone.getZone();
+    public Long getAnimalZoneId() {
+        return animalZoneId;
     }
 
     /**
@@ -46,17 +56,17 @@ public class Ticket {
      * Method that shows information about tickets zone and state
      */
     public void printTicketStatus() {
-        System.out.println("Your " + animalZone.getZone() + " zone ticket is active: " + isTicketValid());
+        System.out.println("Your " + animalZoneId + " zone ticket is active: " + isTicketValid());
     }
 
     public Ticket(TicketBuilder builder) {
-        this.animalZone = builder.animalZone;
+        this.animalZoneId = builder.animalZoneId;
         this.purchaseDate = builder.purchaseDate;
         this.price = builder.price;
     }
 
     public static class TicketBuilder {
-        private static AnimalZone animalZone = new AnimalZone();
+        private Long animalZoneId;
         private Date purchaseDate;
         private double price;
 
@@ -65,9 +75,9 @@ public class Ticket {
             return this;
             }
 
-        public TicketBuilder animalZone(String zone) {
+        public TicketBuilder animalZone(Long zone) {
 
-                this.animalZone.setZone(zone);
+                this.animalZoneId = zone;
 
             return this;
         }
