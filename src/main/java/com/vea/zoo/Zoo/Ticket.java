@@ -27,6 +27,16 @@ public class Ticket {
     private Date purchaseDate;
     @Column(name = "price")
     private double price;
+    @Column(name = "status")
+    private Boolean status;
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
 
     public double getPrice() {
         return price;
@@ -46,8 +56,10 @@ public class Ticket {
      */
     public boolean isTicketValid() {
         if (purchaseDate != Calendar.getInstance().getTime()) {
+            setStatus(true);
             return true;
         } else {
+            setStatus(false);
             return false;
         }
     }
