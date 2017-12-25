@@ -22,7 +22,7 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "animalZone")
-    private static AnimalZone animalZone = new AnimalZone();
+    private Long animalZone;
     @Column(name = "purchaseDate")
     private Date purchaseDate;
     @Column(name = "price")
@@ -30,16 +30,49 @@ public class Ticket {
     @Column(name = "status")
     private Boolean status;
 
-    public Boolean getStatus() {
-        return status;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setAnimalZone(Long animalZone) {
+        this.animalZone = animalZone;
+    }
+
+    public void setPurchaseDate(Date purchaseDate) {
+        this.purchaseDate = purchaseDate;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public void setStatus(Boolean status) {
         this.status = status;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public Date getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public Long getAnimalZone() {
+        return animalZone;
+    }
+
+    public Boolean getStatus() {
+        return isTicketValid();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
     /**
      * Method that determind if ticket is valid
+     *
      * @return true - if ticket is active, false - if ticket is not active
      */
     public boolean isTicketValid() {
@@ -52,24 +85,12 @@ public class Ticket {
         }
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public Date getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public String getAnimalZone() {
-        return animalZone.getZone();
-    }
-
-    /**
-     * Method that shows information about tickets zone and state
-     */
-    public void printTicketStatus() {
-        System.out.println("Your " + animalZone.getZone() + " zone ticket is active: " + isTicketValid());
-    }
+//    /**
+//     * Method that shows information about tickets zone and state
+//     */
+//    public void printTicketStatus() {
+//        System.out.println("Your " + animalZone + " zone ticket is active: " + isTicketValid());
+//    }
 
     public Ticket(TicketBuilder builder) {
         this.animalZone = builder.animalZone;
@@ -79,18 +100,18 @@ public class Ticket {
     }
 
     public static class TicketBuilder {
-        private static AnimalZone animalZone = new AnimalZone();
+        private Long animalZone;
         private Date purchaseDate;
         private double price;
         private Boolean status;
 
-        public TicketBuilder price(double price){
+        public TicketBuilder price(double price) {
             this.price = price;
             return this;
-            }
+        }
 
-        public TicketBuilder animalZone(String zone) {
-                this.animalZone.setZone(zone);
+        public TicketBuilder animalZone(Long zone) {
+            this.animalZone = zone;
             return this;
         }
 
@@ -108,5 +129,5 @@ public class Ticket {
             this.purchaseDate = Calendar.getInstance().getTime();
             this.status = true;
         }
-   }
+    }
 }

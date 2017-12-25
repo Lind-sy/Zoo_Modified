@@ -1,0 +1,98 @@
+12-25 14:47:03 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "Ticket" not found; SQL statement:
+ALTER TABLE "Ticket"
+RENAME COLUMN "Purchase_date" TO "PurchaseDate" [42102-156]
+12-25 14:47:18 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "Ticket" not found; SQL statement:
+ALTER TABLE "Ticket"
+RENAME COLUMN "PURCHASE_DATE " TO "PurchaseDate" [42102-156]
+12-25 14:47:26 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "TICKET " not found; SQL statement:
+ALTER TABLE "TICKET "
+RENAME COLUMN "PURCHASE_DATE " TO "PurchaseDate" [42102-156]
+12-25 14:49:37 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE TICKET 
+  DELETE[*] PURCHASE_DATE DATE "; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE TICKET 
+  Delete Purchase_date Date [42001-156]
+12-25 14:49:41 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE TICKET 
+  DELETE[*] PURCHASE_DATE "; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE TICKET 
+  Delete Purchase_date [42001-156]
+12-25 14:54:18 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE SOLDTICKETS 
+  DROP PURCHASE_DATE DATE[*] "; SQL statement:
+ALTER TABLE SOLDTICKETS 
+  Drop purchase_Date Date [42000-156]
+12-25 14:55:05 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "Soldtickets" not found; SQL statement:
+ALTER TABLE "Soldtickets" DROP "Purchase_date" [42102-156]
+12-25 14:55:15 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "SOLDTICKETS " not found; SQL statement:
+ALTER TABLE "SOLDTICKETS " DROP "Purchase_date" [42102-156]
+12-25 14:55:24 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Column "Purchase_date" not found; SQL statement:
+ALTER TABLE SOLDTICKETS DROP "Purchase_date" [42122-156]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:327)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.table.Table.getColumn(Table.java:595)
+	at org.h2.command.Parser.parseAlterTable(Parser.java:4822)
+	at org.h2.command.Parser.parseAlter(Parser.java:4285)
+	at org.h2.command.Parser.parsePrepared(Parser.java:302)
+	at org.h2.command.Parser.parse(Parser.java:275)
+	at org.h2.command.Parser.parse(Parser.java:247)
+	at org.h2.command.Parser.prepare(Parser.java:201)
+	at org.h2.command.Parser.prepareCommand(Parser.java:214)
+	at org.h2.engine.Session.prepareLocal(Session.java:415)
+	at org.h2.engine.Session.prepareCommand(Session.java:364)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1113)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:164)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:152)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1304)
+	at org.h2.server.web.WebApp.query(WebApp.java:994)
+	at org.h2.server.web.WebApp.query(WebApp.java:970)
+	at org.h2.server.web.WebApp.process(WebApp.java:217)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:118)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:153)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:844)

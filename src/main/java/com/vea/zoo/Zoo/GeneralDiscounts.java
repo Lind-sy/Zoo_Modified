@@ -1,52 +1,76 @@
 /**
- * 
+ *
  */
 package com.vea.zoo.Zoo;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.text.DecimalFormat;
 import java.util.*;
 
 /**
  * @author Martins Buhanovskis
- *
  */
 public class GeneralDiscounts {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(name = "discount")
+    private int discount;
 
-	private static Map<Integer,Double> discountMap = setAvailableDiscounts();
-	private int discount;
+    public Long getId() {
+        return id;
+    }
 
-	public Map<Integer, Double> getDiscountMap() {
-		return discountMap;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public int getDiscount() {
-		return discount;
-	}
+    public int getDiscount() {
+        return discount;
+    }
 
-	public GeneralDiscounts(int discountType) {
-		setDiscount(discountType);
-	}
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
 
 
-	public void setDiscount(int discount) {
-		if (discountMap.isEmpty()) {
-			throw new IllegalStateException("Discounts are not defined!");
-		} else if (discountMap.containsKey(discount)) {
-			this.discount = discount;
-		} else if (!discountMap.containsKey(discount)) {
-			throw new IllegalArgumentException("Such Discount does not exist");
-		}
-	}
-
-	/**
-	 * Method that defines available discounts that can be applied for ticket price
-	 * @return Map of defined discounts
-	 */
-	public static Map<Integer, Double> setAvailableDiscounts() {
-		Map<Integer, Double> discountMap =  new HashMap<>();
-		discountMap.put(10,0.10);
-		discountMap.put(15,0.15);
-		discountMap.put(20,0.20);
-		return discountMap;
-	}
+//	private static Map<Integer,Double> discountMap = setAvailableDiscounts();
+//
+//	public Map<Integer, Double> getDiscountMap() {
+//		return discountMap;
+//	}
+//
+//	public int getDiscount() {
+//		return discount;
+//	}
+//
+//	public GeneralDiscounts(int discountType) {
+//		setDiscount(discountType);
+//	}
+//
+//
+//	public void setDiscount(int discount) {
+//		if (discountMap.isEmpty()) {
+//			throw new IllegalStateException("Discounts are not defined!");
+//		} else if (discountMap.containsKey(discount)) {
+//			this.discount = discount;
+//		} else if (!discountMap.containsKey(discount)) {
+//			throw new IllegalArgumentException("Such Discount does not exist");
+//		}
+//	}
+//
+//	/**
+//	 * Method that defines available discounts that can be applied for ticket price
+//	 * @return Map of defined discounts
+//	 */
+//	public static Map<Integer, Double> setAvailableDiscounts() {
+//		Map<Integer, Double> discountMap =  new HashMap<>();
+//		discountMap.put(10,0.10);
+//		discountMap.put(15,0.15);
+//		discountMap.put(20,0.20);
+//		return discountMap;
+//	}
 }

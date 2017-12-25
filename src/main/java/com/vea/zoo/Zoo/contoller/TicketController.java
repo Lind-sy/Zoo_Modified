@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 public class TicketController {
-    @Autowired
-    private TicketDao ticketDao;
-
-    @RequestMapping(value = "/newTicket", method = RequestMethod.POST)
-    public ResponseEntity addTicket(@RequestParam("zone") final String zone,
-                                    @RequestParam("price") final String price) {
-        //  ticketDao.save(new Ticket(zone, price));
-        return new ResponseEntity(HttpStatus.OK);
-    }
+//    @Autowired
+//    private TicketDao ticketDao;
+//
+//    @RequestMapping(value = "/newTicket", method = RequestMethod.POST)
+//    public ResponseEntity addTicket(@RequestParam("zone") final String zone,
+//                                    @RequestParam("price") final String price) {
+//        //  ticketDao.save(new Ticket(zone, price));
+//        return new ResponseEntity(HttpStatus.OK);
+//    }
 }
