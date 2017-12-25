@@ -22,7 +22,7 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "animalZone")
-    private Long  animalZoneId ;
+    private static AnimalZone animalZone = new AnimalZone();
     @Column(name = "purchaseDate")
     private Date purchaseDate;
     @Column(name = "price")
@@ -36,18 +36,6 @@ public class Ticket {
 
     public void setStatus(Boolean status) {
         this.status = status;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public Date getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public Long getAnimalZoneId() {
-        return animalZoneId;
     }
 
     /**
@@ -64,33 +52,45 @@ public class Ticket {
         }
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public Date getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public String getAnimalZone() {
+        return animalZone.getZone();
+    }
+
     /**
      * Method that shows information about tickets zone and state
      */
     public void printTicketStatus() {
-        System.out.println("Your " + animalZoneId + " zone ticket is active: " + isTicketValid());
+        System.out.println("Your " + animalZone.getZone() + " zone ticket is active: " + isTicketValid());
     }
 
     public Ticket(TicketBuilder builder) {
-        this.animalZoneId = builder.animalZoneId;
+        this.animalZone = builder.animalZone;
         this.purchaseDate = builder.purchaseDate;
         this.price = builder.price;
+        this.status = builder.status;
     }
 
     public static class TicketBuilder {
-        private Long animalZoneId;
+        private static AnimalZone animalZone = new AnimalZone();
         private Date purchaseDate;
         private double price;
+        private Boolean status;
 
         public TicketBuilder price(double price){
             this.price = price;
             return this;
             }
 
-        public TicketBuilder animalZone(Long zone) {
-
-                this.animalZoneId = zone;
-
+        public TicketBuilder animalZone(String zone) {
+                this.animalZone.setZone(zone);
             return this;
         }
 
@@ -99,9 +99,14 @@ public class Ticket {
             return this;
         }
 
-        public TicketBuilder() {
-            this.purchaseDate = Calendar.getInstance().getTime();
+        public TicketBuilder status(Boolean status) {
+            this.status = status;
+            return this;
         }
 
+        public TicketBuilder() {
+            this.purchaseDate = Calendar.getInstance().getTime();
+            this.status = true;
+        }
    }
 }
