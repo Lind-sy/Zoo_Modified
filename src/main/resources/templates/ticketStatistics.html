@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <head>
+    </head>
 <body>
 
+<a href="/greeting">Home Page</a>
+<a href="/ticketSell">Sell Ticket</a>
+<a href="/ticketStatistics">Ticket Statistic</a>
+<a href="/gifts">Girft Shop</a>
+
+<table>
+    <thead>
+        <td>Visitor</td>
+        <td>Tickets</td>
+        <td>Purchase Date</td>
+    </thead>
+    <tr th:each="tickets : ${ticketList}">
+        <td th:text="${tickets.zone}"></td>
+        <td th:text="${tickets.purchaseDate}"></td>
+    </tr>
+    <tr th:each="visitor : ${visitorList}">
+        <td th:text="${visitor.Name}"></td>
+    </tr>
+</table>
 </body>
 </html>
