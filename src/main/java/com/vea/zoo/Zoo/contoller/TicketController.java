@@ -25,7 +25,7 @@ public class TicketController {
     @Autowired
     private VisitorDao visitorDao;
 
-    @RequestMapping(value = "/ticketStatistic" , method = RequestMethod.GET)
+    @RequestMapping(value = "/ticketStatistics" , method = RequestMethod.GET)
     @ModelAttribute("ticketList")
     public List<Ticket> getsoldtickets()
     {
@@ -38,7 +38,7 @@ public class TicketController {
         return tickets;
     }
 
-    @RequestMapping(value = "/ticketStatistic" , method = RequestMethod.GET)
+    @RequestMapping(value = "/ticketStatistics" , method = RequestMethod.GET)
     @ModelAttribute("visitorList")
     public List<Visitor> getsoldvisitors()
     {
