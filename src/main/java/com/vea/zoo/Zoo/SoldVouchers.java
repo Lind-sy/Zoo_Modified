@@ -1,10 +1,9 @@
 package com.vea.zoo.Zoo;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "soldvouchers")
 public class SoldVouchers {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

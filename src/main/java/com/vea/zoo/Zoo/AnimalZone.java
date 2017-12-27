@@ -3,16 +3,15 @@
  */
 package com.vea.zoo.Zoo;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * @author Martins Buhanovskis
  */
+@Entity
+@Table(name = "animalzone")
 public class AnimalZone {
 
     @Id

@@ -10,7 +10,7 @@
 <a href="/ticketStatistics">Ticket Statistic</a>
 <a href="/gifts">Girft Shop</a>
 
-<form action="#" th:action="@{/processForm}" th:object="${foo}" method="post">
+<form action="#" th:action="@{/processForm}" th:object="${visitor}" method="post">
     <input type="text" th:field="*{bar}" />
     <input type="submit" />
 </form>

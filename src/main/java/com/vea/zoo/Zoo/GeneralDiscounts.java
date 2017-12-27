@@ -3,16 +3,15 @@
  */
 package com.vea.zoo.Zoo;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.text.DecimalFormat;
 import java.util.*;
 
 /**
  * @author Martins Buhanovskis
  */
+@Entity
+@Table(name = "generaldiscounts")
 public class GeneralDiscounts {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
