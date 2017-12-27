@@ -1,9 +1,6 @@
 package com.vea.zoo.Zoo;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +15,8 @@ import java.util.List;
  * 				* gives ticket
  *
  */
+@Entity
+@Table(name = "visitor")
 public class Visitor{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
