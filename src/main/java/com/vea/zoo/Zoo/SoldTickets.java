@@ -8,20 +8,6 @@ public class SoldTickets {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "VISITOR")
-    private Long visitor;
-    @Column(name = "TICKET")
-    private Long ticket;
-    @Column(name = "PURCHASEDATE")
-    private Date purchaseDate;
-
-    public Date getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public void setPurchaseDate(Date purchaseDate) {
-        this.purchaseDate = purchaseDate;
-    }
 
     public Long getId() {
         return id;
@@ -31,20 +17,39 @@ public class SoldTickets {
         this.id = id;
     }
 
-    public Long getVisitor() {
+    public Visitor getVisitor() {
         return visitor;
     }
 
-    public void setVisitor(Long visitor) {
+    public void setVisitor(Visitor visitor) {
         this.visitor = visitor;
     }
 
-    public Long getTicket() {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "visitor", nullable = false)
+    private Visitor visitor;
+
+    public Ticket getTicket() {
         return ticket;
     }
 
-    public void setTicket(Long ticket) {
+    public void setTicket(Ticket ticket) {
         this.ticket = ticket;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ticket", nullable = false)
+    private Ticket ticket;
+
+    @Column(name = "PURCHASEDATE")
+    private Date purchaseDate;
+
+    public Date getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public void setPurchaseDate(Date purchaseDate) {
+        this.purchaseDate = purchaseDate;
     }
 
 

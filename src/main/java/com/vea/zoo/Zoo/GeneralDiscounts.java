@@ -19,6 +19,19 @@ public class GeneralDiscounts {
     @Column(name = "DISCOUNT")
     private int discount;
 
+    public Voucher getVoucher() {
+        return voucher;
+    }
+
+    public void setVoucher(Voucher voucher) {
+        this.voucher = voucher;
+    }
+
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL,
+            mappedBy = "voucher")
+    private Voucher voucher;
+
     public Long getId() {
         return id;
     }

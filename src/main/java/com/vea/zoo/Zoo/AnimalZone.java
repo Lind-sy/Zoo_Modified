@@ -20,6 +20,19 @@ public class AnimalZone {
     @Column(name = "ZONE")
     private String zone;
 
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
+
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL,
+            mappedBy = "ticket")
+    private Ticket ticket;
+
     public Long getId() {
         return id;
     }

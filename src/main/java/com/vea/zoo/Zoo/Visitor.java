@@ -2,7 +2,9 @@ package com.vea.zoo.Zoo;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 
@@ -21,10 +23,39 @@ public class Visitor{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
 	@Column(name = "NAME")
 	private String name;
-	@Column(name = "CATEGORY")
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "category", nullable = false)
 	private Long category;
+
+	public Set<SoldTickets> getSoldTickets() {
+		return soldTickets;
+	}
+
+	public void setSoldTickets(Set<SoldTickets> soldTickets) {
+		this.soldTickets = soldTickets;
+	}
+
+	public Set<SoldVouchers> getSoldVouchers() {
+		return soldVouchers;
+	}
+
+	public void setSoldVouchers(Set<SoldVouchers> soldVouchers) {
+		this.soldVouchers = soldVouchers;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY,
+			mappedBy = "visitor")
+	private Set<SoldTickets> soldTickets = new HashSet<>();
+
+	@OneToMany(cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY,
+			mappedBy = "visitor")
+	private Set<SoldVouchers> soldVouchers = new HashSet<>();
 
 	public Long getId() {
 		return id;

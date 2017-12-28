@@ -19,8 +19,22 @@ public class HumanCatorgorys {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
+	public Visitor getVisitor() {
+		return visitor;
+	}
+
+	public void setVisitor(Visitor visitor) {
+		this.visitor = visitor;
+	}
+
 	@Column(name = "CATEGORY")
 	private String category;
+
+	@OneToOne(fetch = FetchType.LAZY,
+			cascade =  CascadeType.ALL,
+			mappedBy = "visitor")
+	private Visitor visitor;
 
 	//private static final Map<String, String> categoryMap = defaultHumanCategoryMap();
 

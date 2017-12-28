@@ -8,10 +8,31 @@ public class SoldVouchers {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "VISITOR")
-    private Long visitor;
-    @Column(name = "VOUCHER")
-    private Long voucher;
+
+    public Visitor getVisitor() {
+        return visitor;
+    }
+
+    public void setVisitor(Visitor visitor) {
+        this.visitor = visitor;
+    }
+
+    public Voucher getVoucher() {
+        return voucher;
+    }
+
+    public void setVoucher(Voucher voucher) {
+        this.voucher = voucher;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "visitor", nullable = false)
+    private Visitor visitor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "voucher", nullable = false)
+    private Voucher voucher;
+
 
     public Long getId() {
         return id;
@@ -20,22 +41,5 @@ public class SoldVouchers {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public Long getVisitor() {
-        return visitor;
-    }
-
-    public void setVisitor(Long visitor) {
-        this.visitor = visitor;
-    }
-
-    public Long getVoucher() {
-        return voucher;
-    }
-
-    public void setVoucher(Long voucher) {
-        this.voucher = voucher;
-    }
-
 
 }

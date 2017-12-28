@@ -21,20 +21,46 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "ANIMALZONE")
-    private Long animalZone;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "animalzone", nullable = false)
+    private AnimalZone animalZone;
+
     @Column(name = "PURCHASEDATE")
     private Date purchaseDate;
+
+    public Set<SoldTickets> getSoldTickets() {
+        return soldTickets;
+    }
+
+    public void setSoldTickets(Set<SoldTickets> soldTickets) {
+        this.soldTickets = soldTickets;
+    }
+
     @Column(name = "PRICE")
     private double price;
     @Column(name = "STATUS")
     private Boolean status;
 
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "ticket")
+    private Set<SoldTickets> soldTickets = new HashSet<>();
+
+
+    public Ticket(){
+
+    }
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setAnimalZone(Long animalZone) {
+    public AnimalZone getAnimalZone() {
+        return animalZone;
+    }
+
+    public void setAnimalZone(AnimalZone animalZone) {
         this.animalZone = animalZone;
     }
 
@@ -58,9 +84,7 @@ public class Ticket {
         return purchaseDate;
     }
 
-    public Long getAnimalZone() {
-        return animalZone;
-    }
+
 
     public Boolean getStatus() {
         return isTicketValid();
@@ -91,43 +115,43 @@ public class Ticket {
 //    public void printTicketStatus() {
 //        System.out.println("Your " + animalZone + " zone ticket is active: " + isTicketValid());
 //    }
-
-    public Ticket(TicketBuilder builder) {
-        this.animalZone = builder.animalZone;
-        this.purchaseDate = builder.purchaseDate;
-        this.price = builder.price;
-        this.status = builder.status;
-    }
-
-    public static class TicketBuilder {
-        private Long animalZone;
-        private Date purchaseDate;
-        private double price;
-        private Boolean status;
-
-        public TicketBuilder price(double price) {
-            this.price = price;
-            return this;
-        }
-
-        public TicketBuilder animalZone(Long zone) {
-            this.animalZone = zone;
-            return this;
-        }
-
-        public TicketBuilder date(Date purchaseDate) {
-            this.purchaseDate = purchaseDate;
-            return this;
-        }
-
-        public TicketBuilder status(Boolean status) {
-            this.status = status;
-            return this;
-        }
-
-        public TicketBuilder() {
-            this.purchaseDate = Calendar.getInstance().getTime();
-            this.status = true;
-        }
-    }
+//
+//    public Ticket(TicketBuilder builder) {
+//        this.animalZone = builder.animalZone;
+//        this.purchaseDate = builder.purchaseDate;
+//        this.price = builder.price;
+//        this.status = builder.status;
+//    }
+//
+//    public static class TicketBuilder {
+//        private AnimalZone animalZone;
+//        private Date purchaseDate;
+//        private double price;
+//        private Boolean status;
+//
+//        public TicketBuilder price(double price) {
+//            this.price = price;
+//            return this;
+//        }
+//
+//        public TicketBuilder animalZone(AnimalZone zone) {
+//            this.animalZone = zone;
+//            return this;
+//        }
+//
+//        public TicketBuilder date(Date purchaseDate) {
+//            this.purchaseDate = purchaseDate;
+//            return this;
+//        }
+//
+//        public TicketBuilder status(Boolean status) {
+//            this.status = status;
+//            return this;
+//        }
+//
+//        public TicketBuilder() {
+//            this.purchaseDate = Calendar.getInstance().getTime();
+//            this.status = true;
+//        }
+//    }
 }

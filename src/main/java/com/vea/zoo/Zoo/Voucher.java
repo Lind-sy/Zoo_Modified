@@ -6,14 +6,6 @@ import java.util.Random;
 @Entity
 @Table(name = "VOUCHER")
 public class Voucher {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    @Column(name = "GENERALDISCOUNT")
-    private Long generalDiscounts;
-    @Column(name = "CODE")
-    private String code;
-
     public Long getId() {
         return id;
     }
@@ -21,6 +13,17 @@ public class Voucher {
     public void setId(Long id) {
         this.id = id;
     }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "generaldiscount", nullable = false)
+    private Long generalDiscounts;
+    @Column(name = "CODE")
+    private String code;
+
 
     public void setGeneralDiscounts(Long generalDiscounts) {
         this.generalDiscounts = generalDiscounts;
