@@ -96,3 +96,38 @@ ALTER TABLE SOLDTICKETS DROP "Purchase_date" [42122-156]
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:844)
+12-28 15:36:40 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT ANIMALZONE[*] (ZONE)
+VALUES(""General"") "; expected "INTO"; SQL statement:
+Insert animalzone (Zone)
+Values("General") [42001-156]
+12-28 15:37:12 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT ANIMALZONE[*] (ZONE)
+VALUES(""General"") "; expected "INTO"; SQL statement:
+Insert Animalzone (Zone)
+Values("General") [42001-156]
+12-28 15:37:43 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT ANIMALZONE[*] (ZONE)
+VALUES('General') "; expected "INTO"; SQL statement:
+Insert Animalzone (Zone)
+Values('General') [42001-156]
+12-28 15:38:00 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT ANIMALZONE[*] (ZONE)
+VALUES('General') "; expected "INTO"; SQL statement:
+INSERT Animalzone (Zone)
+Values('General') [42001-156]
+12-28 15:38:07 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT ANIMALZONE[*] (ZONE)
+VALUES('General') "; expected "INTO"; SQL statement:
+INSERT animalzone (Zone)
+Values('General') [42001-156]
+12-28 15:38:22 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT ANIMALZONE[*] (ZONE)
+VALUES('General') "; expected "INTO"; SQL statement:
+INSERT animalzone (zone)
+Values('General') [42001-156]
+12-28 15:40:00 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT ANIMALZONE[*] (ZONE)
+VALUES ('General') "; expected "INTO"; SQL statement:
+INSERT animalzone (zone)
+Values ('General') [42001-156]
