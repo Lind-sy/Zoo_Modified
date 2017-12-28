@@ -22,7 +22,7 @@ public class GeneralDiscounts {
 
     @Column(name = "DISCOUNT")
 
-    private int discount;
+    private Integer discount;
 
     public Voucher getVoucher() {
         return voucher;
