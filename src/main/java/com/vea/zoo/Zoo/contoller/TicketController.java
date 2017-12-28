@@ -26,19 +26,26 @@ public class TicketController {
     @Autowired
     private VisitorDao visitorDao;
 
-    @RequestMapping(value ="/ticketStatistics", method = RequestMethod.GET)
-    public String getsoldtickets(Model model)
-    {
-      List<SoldTickets> soldTicketsList = (List<SoldTickets>) soldTicketDao.findAll();
-      List<Ticket> tickets = new LinkedList<>();
-      for (SoldTickets sold:soldTicketsList
-             ) {
-//            tickets.add();
-        }
-        model.addAttribute("ticketList",ticketDao.findAll());
-//        model.addAttribute("ticketList",tickets);
-      return "ticketStatistics";
+    @RequestMapping(value = "/ticketStatistics", method = RequestMethod.GET)
+    public String showAllPosts(Model model) {
+        model.addAttribute("ticketList", (List<Ticket>)ticketDao.findAll());
+        return "ticketStatistics";
     }
+
+//    @RequestMapping(value ="/ticketStatistics", method = RequestMethod.GET)
+//    public String getsoldtickets(Model model)
+//    {
+////      List<SoldTickets> soldTicketsList = (List<SoldTickets>) soldTicketDao.findAll();
+//      List<Ticket> tickets = (List<Ticket>)ticketDao.findAll();
+////      for (SoldTickets sold:soldTicketsList
+////             ) {
+//////            tickets.add();
+////        }
+//        System.out.println(tickets.size()+"*************");
+//        model.addAttribute("ticketList",(List<Ticket>)ticketDao.findAll());
+////        model.addAttribute("ticketList",tickets);
+//      return "ticketStatistics";
+//    }
 //    @RequestMapping("/ticketStatistics" )
 //    public String getsoldvisitors(Model model)
 //    {
@@ -52,16 +59,16 @@ public class TicketController {
 //        return "visitorList";
 //    }
 //    @RequestMapping(value = "/ticketStatistics" , method = RequestMethod.GET)
-//    @ModelAttribute("visitorList")
-//    public List<Visitor> getsoldvisitors()
+//    @ModelAttribute("ticketList")
+//    public List<Ticket> getsoldvisitors()
 //    {
-//        List<SoldTickets> soldTicketsList = (List<SoldTickets>) soldTicketDao.findAll();
-//        List<Visitor> visitors = new LinkedList<>();
-//        for (SoldTickets sold:soldTicketsList
-//                ) {
-//            visitors.add(visitorDao.findOne(sold.getVisitor()));
-//        }
-//        return visitors;
+////        List<SoldTickets> soldTicketsList = (List<SoldTickets>) soldTicketDao.findAll();
+////        List<Visitor> visitors = new LinkedList<>();
+////        for (SoldTickets sold:soldTicketsList
+////                ) {
+////            visitors.add(visitorDao.findOne(sold.getVisitor()));
+////        }
+//        return (List<Ticket>)ticketDao.findAll();
 //    }
 //
 //    @RequestMapping(value = "/newTicket", method = RequestMethod.POST)
