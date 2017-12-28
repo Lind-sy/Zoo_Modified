@@ -4,14 +4,14 @@ import javax.persistence.*;
 import java.util.Random;
 
 @Entity
-@Table(name = "voucher")
+@Table(name = "VOUCHER")
 public class Voucher {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "generalDiscounts")
+    @Column(name = "GENERALDISCOUNT")
     private Long generalDiscounts;
-    @Column(name = "code")
+    @Column(name = "CODE")
     private String code;
 
     public Long getId() {
