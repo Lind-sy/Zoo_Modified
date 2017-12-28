@@ -34,7 +34,7 @@ public class AnimalZone {
 
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
-            mappedBy = "ticket")
+            mappedBy = "animalZone")
     private Ticket ticket;
 
     public Long getId() {

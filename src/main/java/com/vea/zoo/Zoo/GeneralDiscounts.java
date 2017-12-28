@@ -34,7 +34,7 @@ public class GeneralDiscounts {
 
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
-            mappedBy = "voucher")
+            mappedBy = "generalDiscounts")
     private Voucher voucher;
 
     public Long getId() {

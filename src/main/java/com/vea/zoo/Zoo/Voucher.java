@@ -20,12 +20,20 @@ public class Voucher {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "generaldiscount", nullable = false)
-    private Long generalDiscounts;
+    private GeneralDiscounts generalDiscounts;
     @Column(name = "CODE")
     private String code;
 
 
-    public void setGeneralDiscounts(Long generalDiscounts) {
+//    public void setGeneralDiscounts(Long generalDiscounts) {
+//        this.generalDiscounts = generalDiscounts;
+//    }
+
+    public GeneralDiscounts getGeneralDiscounts() {
+        return generalDiscounts;
+    }
+
+    public void setGeneralDiscounts(GeneralDiscounts generalDiscounts) {
         this.generalDiscounts = generalDiscounts;
     }
 
@@ -37,16 +45,16 @@ public class Voucher {
 
     }
 
-    public Long getGeneralDiscounts() {
-        return generalDiscounts;
-    }
+//    public Long getGeneralDiscounts() {
+//        return generalDiscounts;
+//    }
 
     public String getCode() {
         return code;
     }
 
     public Voucher(Long discountType) {
-        this.generalDiscounts = discountType;
+//        this.generalDiscounts = discountType;
         this.code = genCode();
     }
 
