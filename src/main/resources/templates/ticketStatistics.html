@@ -9,20 +9,23 @@
 <a href="/ticketSell">Sell Ticket</a>
 <a href="/ticketStatistics">Ticket Statistic</a>
 <a href="/gifts">Girft Shop</a>
-
+<div th:if="${ticketList.empty}">FOOD</div>
 <table>
     <thead>
         <td>Visitor</td>
         <td>Tickets</td>
         <td>Purchase Date</td>
     </thead>
+
     <tr th:each="ticket : ${ticketList}">
         <td th:text="${ticket.status}"></td>
-        <td th:text="${ticket.PurchaseDate}"></td>
+        <!--<td th:text="${ticket.purs}"></td>-->
     </tr>
     <!--<tr th:each="visitor : ${visitorList}">-->
         <!--<td th:text="${visitor.Name}"></td>-->
     <!--</tr>-->
 </table>
+<!--<p th:text="'Hello, ' + ${name} + '!'" />-->
+
 </body>
 </html>

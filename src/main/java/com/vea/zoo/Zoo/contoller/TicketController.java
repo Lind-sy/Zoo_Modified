@@ -41,6 +41,7 @@ public class TicketController {
             tickets.add(ticketDao.findOne(sold.getTicket()));
         }
         model.addAttribute("ticketList",ticketDao.findAll());
+//        model.addAttribute("ticketList",tickets);
       return "ticketStatistics";
     }
 //    @RequestMapping("/ticketStatistics" )
