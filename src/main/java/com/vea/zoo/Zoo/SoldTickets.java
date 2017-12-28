@@ -9,6 +9,8 @@ public class SoldTickets {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    public SoldTickets(){}
+
     public Long getId() {
         return id;
     }

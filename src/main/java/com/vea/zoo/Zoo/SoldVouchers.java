@@ -17,8 +17,13 @@ public class SoldVouchers {
         this.visitor = visitor;
     }
 
+    public SoldVouchers() {
+//        this.visitor = visitor;
+    }
+
     public Voucher getVoucher() {
         return voucher;
+
     }
 
     public void setVoucher(Voucher voucher) {

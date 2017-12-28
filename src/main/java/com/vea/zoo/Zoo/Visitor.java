@@ -1,5 +1,7 @@
 package com.vea.zoo.Zoo;
 
+import jdk.jfr.Category;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -27,9 +29,18 @@ public class Visitor{
 	@Column(name = "NAME")
 	private String name;
 
+	public HumanCatorgorys getCategory() {
+
+		return category;
+	}
+
+	public void setCategory(HumanCatorgorys category) {
+		this.category = category;
+	}
+
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category", nullable = false)
-	private Long category;
+	private HumanCatorgorys category;
 
 	public Set<SoldTickets> getSoldTickets() {
 		return soldTickets;
@@ -73,15 +84,15 @@ public class Visitor{
 		this.name = name;
 	}
 
-	public Long getCategory() {
-		return category;
-	}
+//	public Long getCategory() {
+//		return category;
+//	}
+//
+//	public void setCategory(Long category) {
+//		this.category = category;
+//	}
 
-	public void setCategory(Long category) {
-		this.category = category;
-	}
-
-	public Visitor(String name, Long category){
+	public Visitor(String name, HumanCatorgorys category){
 		this.name = name;
 		this.category = category;
 	};
@@ -89,6 +100,9 @@ public class Visitor{
 	public Visitor(String name){
 		this.name = name;
 	};
+	public Visitor(){
+
+	}
 
 	//	private static List<Ticket> ticketList = new ArrayList<>();
 //	private static List<Voucher> voucherList = new ArrayList<>();

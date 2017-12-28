@@ -33,7 +33,7 @@ public class TicketController {
       List<Ticket> tickets = new LinkedList<>();
       for (SoldTickets sold:soldTicketsList
              ) {
-            tickets.add(ticketDao.findOne(sold.getTicket()));
+//            tickets.add();
         }
         model.addAttribute("ticketList",ticketDao.findAll());
 //        model.addAttribute("ticketList",tickets);

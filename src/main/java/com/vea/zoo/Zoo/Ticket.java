@@ -39,6 +39,9 @@ public class Ticket {
 
     @Column(name = "PRICE")
     private double price;
+
+
+
     @Column(name = "STATUS")
     private Boolean status;
 

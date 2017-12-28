@@ -16,7 +16,12 @@ public class GeneralDiscounts {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    public GeneralDiscounts() {
+    }
+
     @Column(name = "DISCOUNT")
+
     private int discount;
 
     public Voucher getVoucher() {

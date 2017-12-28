@@ -20,8 +20,12 @@ public class AnimalZone {
     @Column(name = "ZONE")
     private String zone;
 
+    public AnimalZone() {
+    }
+
     public Ticket getTicket() {
         return ticket;
+
     }
 
     public void setTicket(Ticket ticket) {
