@@ -16,14 +16,14 @@ import java.util.List;
  *
  */
 @Entity
-@Table(name = "visitor")
+@Table(name = "VISITOR")
 public class Visitor{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(name = "name")
+	@Column(name = "NAME")
 	private String name;
-	@Column(name = "category")
+	@Column(name = "CATEGORY")
 	private Long category;
 
 	public Long getId() {

@@ -16,13 +16,13 @@
         <td>Tickets</td>
         <td>Purchase Date</td>
     </thead>
-    <tr th:each="tickets : ${ticketList}">
-        <td th:text="${tickets.zone}"></td>
-        <td th:text="${tickets.purchaseDate}"></td>
+    <tr th:each="ticket : ${ticketList}">
+        <td th:text="${ticket.status}"></td>
+        <td th:text="${ticket.PurchaseDate}"></td>
     </tr>
-    <tr th:each="visitor : ${visitorList}">
-        <td th:text="${visitor.Name}"></td>
-    </tr>
+    <!--<tr th:each="visitor : ${visitorList}">-->
+        <!--<td th:text="${visitor.Name}"></td>-->
+    <!--</tr>-->
 </table>
 </body>
 </html>

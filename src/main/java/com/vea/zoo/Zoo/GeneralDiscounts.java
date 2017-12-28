@@ -11,12 +11,12 @@ import java.util.*;
  * @author Martins Buhanovskis
  */
 @Entity
-@Table(name = "generaldiscounts")
+@Table(name = "GENERALDISCOUNTS")
 public class GeneralDiscounts {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "discount")
+    @Column(name = "DISCOUNT")
     private int discount;
 
     public Long getId() {

@@ -3,16 +3,16 @@ package com.vea.zoo.Zoo;
 import javax.persistence.*;
 import java.util.Date;
 @Entity
-@Table(name = "soldtickets")
+@Table(name = "SOLDTICKETS")
 public class SoldTickets {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "visitor")
+    @Column(name = "VISITOR")
     private Long visitor;
-    @Column(name = "ticket")
+    @Column(name = "TICKET")
     private Long ticket;
-    @Column(name = "purchaseDate")
+    @Column(name = "PURCHASEDATE")
     private Date purchaseDate;
 
     public Date getPurchaseDate() {

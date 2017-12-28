@@ -14,12 +14,12 @@ import java.util.Map;
  *
  */
 @Entity
-@Table(name = "humancatorgorys")
+@Table(name = "HUMANCATORGORYS")
 public class HumanCatorgorys {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(name = "category")
+	@Column(name = "CATEGORY")
 	private String category;
 
 	//private static final Map<String, String> categoryMap = defaultHumanCategoryMap();

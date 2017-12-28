@@ -11,13 +11,13 @@ import java.util.Map;
  * @author Martins Buhanovskis
  */
 @Entity
-@Table(name = "animalzone")
+@Table(name = "ANIMALZONE")
 public class AnimalZone {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "zone")
+    @Column(name = "ZONE")
     private String zone;
 
     public Long getId() {

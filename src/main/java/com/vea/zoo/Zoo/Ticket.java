@@ -15,19 +15,19 @@ import java.util.*;
  */
 
 @Entity
-@Table(name = "ticket")
+@Table(name = "TICKET")
 public class Ticket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "animalZone")
+    @Column(name = "ANIMALZONE")
     private Long animalZone;
-    @Column(name = "purchaseDate")
+    @Column(name = "PURCHASEDATE")
     private Date purchaseDate;
-    @Column(name = "price")
+    @Column(name = "PRICE")
     private double price;
-    @Column(name = "status")
+    @Column(name = "STATUS")
     private Boolean status;
 
     public void setId(Long id) {

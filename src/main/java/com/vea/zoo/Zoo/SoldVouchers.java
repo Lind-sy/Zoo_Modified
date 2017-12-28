@@ -3,14 +3,14 @@ package com.vea.zoo.Zoo;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "soldvouchers")
+@Table(name = "SOLDVOUCHERS")
 public class SoldVouchers {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "visitor")
+    @Column(name = "VISITOR")
     private Long visitor;
-    @Column(name = "voucher")
+    @Column(name = "VOUCHER")
     private Long voucher;
 
     public Long getId() {
