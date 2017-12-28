@@ -21,8 +21,7 @@ public class GeneralDiscounts {
     }
 
     @Column(name = "DISCOUNT")
-
-    private Integer discount;
+    private Double discount;
 
     public Voucher getVoucher() {
         return voucher;
@@ -45,11 +44,11 @@ public class GeneralDiscounts {
         this.id = id;
     }
 
-    public int getDiscount() {
+    public Double getDiscount() {
         return discount;
     }
 
-    public void setDiscount(int discount) {
+    public void setDiscount(Double discount) {
         this.discount = discount;
     }
 
