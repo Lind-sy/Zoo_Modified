@@ -14,7 +14,7 @@ import java.util.Map;
  *
  */
 @Entity
-@Table(name = "humanCatorgorys")
+@Table(name = "humancatorgorys")
 public class HumanCatorgorys {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
