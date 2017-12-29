@@ -20,7 +20,8 @@ public class AnimalZone {
     @Column(name = "ZONE")
     private String zone;
 
-    public AnimalZone() {
+    public AnimalZone(String zone) {
+        this.zone = zone;
     }
 
     public Ticket getTicket() {

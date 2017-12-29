@@ -1,8 +1,10 @@
 package com.vea.zoo.Zoo.contoller;
 
+import com.vea.zoo.Zoo.AnimalZone;
 import com.vea.zoo.Zoo.SoldTickets;
 import com.vea.zoo.Zoo.Ticket;
 import com.vea.zoo.Zoo.Visitor;
+import com.vea.zoo.Zoo.dao.AnimalZoneDao;
 import com.vea.zoo.Zoo.dao.SoldTicketDao;
 import com.vea.zoo.Zoo.dao.TicketDao;
 import com.vea.zoo.Zoo.dao.VisitorDao;
@@ -25,10 +27,14 @@ public class TicketController {
     private SoldTicketDao soldTicketDao;
     @Autowired
     private VisitorDao visitorDao;
+    @Autowired
+    private AnimalZoneDao animalZoneDao;
 
     @RequestMapping(value = "/ticketStatistics", method = RequestMethod.GET)
     public String showAllPosts(Model model) {
-        model.addAttribute("ticketList", (List<Ticket>)ticketDao.findAll());
+        List<AnimalZone> tickets = (List<AnimalZone>)animalZoneDao.findAll();
+        System.out.println(tickets.size()+"*************");
+        model.addAttribute("ticketList", animalZoneDao.findAll());
         return "ticketStatistics";
     }
 
@@ -71,10 +77,9 @@ public class TicketController {
 //        return (List<Ticket>)ticketDao.findAll();
 //    }
 //
-//    @RequestMapping(value = "/newTicket", method = RequestMethod.POST)
-//    public ResponseEntity addTicket(@RequestParam("zone") final String zone,
-//                                    @RequestParam("price") final String price) {
-//        //  ticketDao.save(new Ticket(zone, price));
-//        return new ResponseEntity(HttpStatus.OK);
-//    }
+    @RequestMapping(value = "/ticketSell", method = RequestMethod.GET)
+    public ResponseEntity addTicket(@RequestParam("zone") final String zone) {
+          animalZoneDao.save(new AnimalZone(zone));
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
