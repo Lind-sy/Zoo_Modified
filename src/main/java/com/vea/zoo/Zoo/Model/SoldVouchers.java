@@ -1,4 +1,4 @@
-package com.vea.zoo.Zoo;
+package com.vea.zoo.Zoo.Model;
 
 import javax.persistence.*;
 

@@ -1,11 +1,9 @@
 /**
  *
  */
-package com.vea.zoo.Zoo;
+package com.vea.zoo.Zoo.Model;
 
 import javax.persistence.*;
-import java.text.DecimalFormat;
-import java.util.*;
 
 /**
  * @author Martins Buhanovskis

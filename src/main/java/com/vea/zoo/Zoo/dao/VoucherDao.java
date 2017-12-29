@@ -1,6 +1,6 @@
 package com.vea.zoo.Zoo.dao;
 
-import com.vea.zoo.Zoo.Voucher;
+import com.vea.zoo.Zoo.Model.Voucher;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

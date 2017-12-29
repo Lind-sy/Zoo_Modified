@@ -1,11 +1,9 @@
 /**
  *
  */
-package com.vea.zoo.Zoo;
+package com.vea.zoo.Zoo.Model;
 
 import javax.persistence.*;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author Martins Buhanovskis
@@ -22,6 +20,10 @@ public class AnimalZone {
 
     public AnimalZone(String zone) {
         this.zone = zone;
+    }
+
+    public AnimalZone() {
+
     }
 
     public Ticket getTicket() {

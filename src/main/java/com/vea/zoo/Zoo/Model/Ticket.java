@@ -1,7 +1,9 @@
-package com.vea.zoo.Zoo;
+package com.vea.zoo.Zoo.Model;
+
+import com.vea.zoo.Zoo.Model.AnimalZone;
+import com.vea.zoo.Zoo.Model.SoldTickets;
 
 import javax.persistence.*;
-import java.text.DecimalFormat;
 import java.util.*;
 
 /**

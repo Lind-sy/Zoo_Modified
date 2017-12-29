@@ -1,13 +1,9 @@
 /**
  * 
  */
-package com.vea.zoo.Zoo;
+package com.vea.zoo.Zoo.Model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @author Martins Buhanovskis

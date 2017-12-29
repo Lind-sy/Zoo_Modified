@@ -1,4 +1,4 @@
-package com.vea.zoo.Zoo;
+package com.vea.zoo.Zoo.contoller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

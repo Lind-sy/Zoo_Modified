@@ -1,11 +1,7 @@
-package com.vea.zoo.Zoo;
-
-import jdk.jfr.Category;
+package com.vea.zoo.Zoo.Model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**

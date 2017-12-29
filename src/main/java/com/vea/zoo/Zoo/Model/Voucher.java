@@ -1,4 +1,6 @@
-package com.vea.zoo.Zoo;
+package com.vea.zoo.Zoo.Model;
+
+import com.vea.zoo.Zoo.Model.GeneralDiscounts;
 
 import javax.persistence.*;
 import java.util.Random;

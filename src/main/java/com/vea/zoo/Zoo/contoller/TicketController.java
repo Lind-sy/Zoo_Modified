@@ -1,9 +1,7 @@
 package com.vea.zoo.Zoo.contoller;
 
-import com.vea.zoo.Zoo.AnimalZone;
-import com.vea.zoo.Zoo.SoldTickets;
-import com.vea.zoo.Zoo.Ticket;
-import com.vea.zoo.Zoo.Visitor;
+import com.vea.zoo.Zoo.Model.AnimalZone;
+import com.vea.zoo.Zoo.Services.AnimalZoneService;
 import com.vea.zoo.Zoo.dao.AnimalZoneDao;
 import com.vea.zoo.Zoo.dao.SoldTicketDao;
 import com.vea.zoo.Zoo.dao.TicketDao;
@@ -12,29 +10,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import java.util.LinkedList;
 import java.util.List;
 @Controller
 public class TicketController {
+
+
+    private AnimalZoneService animalZoneService;
+
     @Autowired
-    private TicketDao ticketDao;
-    @Autowired
-    private SoldTicketDao soldTicketDao;
-    @Autowired
-    private VisitorDao visitorDao;
-    @Autowired
-    private AnimalZoneDao animalZoneDao;
+    public TicketController(final AnimalZoneService animalZoneService) {
+        this.animalZoneService = animalZoneService;
+    }
 
     @RequestMapping(value = "/ticketStatistics", method = RequestMethod.GET)
     public String showAllPosts(Model model) {
-        List<AnimalZone> tickets = (List<AnimalZone>)animalZoneDao.findAll();
-        System.out.println(tickets.size()+"*************");
-        model.addAttribute("ticketList", animalZoneDao.findAll());
+        model.addAttribute("ticketList",animalZoneService.getAnimalZones() );
         return "ticketStatistics";
     }
 
@@ -77,9 +70,9 @@ public class TicketController {
 //        return (List<Ticket>)ticketDao.findAll();
 //    }
 //
-    @RequestMapping(value = "/ticketSell", method = RequestMethod.GET)
-    public ResponseEntity addTicket(@RequestParam("zone") final String zone) {
-          animalZoneDao.save(new AnimalZone(zone));
-        return new ResponseEntity(HttpStatus.OK);
-    }
+//    @RequestMapping(value = "/ticketSell", method = RequestMethod.GET)
+//    public ResponseEntity addTicket(@RequestParam("zone") final String zone) {
+//          animalZoneDao.save(new AnimalZone(zone));
+//        return new ResponseEntity(HttpStatus.OK);
+//    }
 }

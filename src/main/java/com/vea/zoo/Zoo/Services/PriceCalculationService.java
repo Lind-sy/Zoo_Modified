@@ -1,4 +1,7 @@
-package com.vea.zoo.Zoo;
+package com.vea.zoo.Zoo.Services;
+
+import com.vea.zoo.Zoo.Model.Visitor;
+import com.vea.zoo.Zoo.Model.Voucher;
 
 public interface PriceCalculationService {
     public void calculateBasePrice(String zone);

@@ -1,6 +1,10 @@
-package com.vea.zoo.Zoo;
+package com.vea.zoo.Zoo.Services;
 
-public class PriceCalculator implements PriceCalculationService{
+import com.vea.zoo.Zoo.Model.Visitor;
+import com.vea.zoo.Zoo.Model.Voucher;
+import com.vea.zoo.Zoo.Services.PriceCalculationService;
+
+public class PriceCalculator implements PriceCalculationService {
     @Override
     public void calculateBasePrice(String zone) {
 
