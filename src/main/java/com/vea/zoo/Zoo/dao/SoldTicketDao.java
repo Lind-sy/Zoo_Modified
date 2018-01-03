@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface SoldTicketDao  extends CrudRepository<SoldTickets, Long> {
 
-    @Query("SELECT t FROM SoldTickets t WHERE t.ticket.status = true")
+    @Query("SELECT t FROM SoldTickets t WHERE t.zooTicket.status = true")
     List<SoldTickets> findAllActiveTickets();
 }

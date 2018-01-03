@@ -16,3 +16,9 @@ INSERT INTO "PUBLIC"."TICKET"("ID","PRICE","PURCHASEDATE","STATUS","ANIMALZONE")
 01-03 13:53:19 jdbc[12]: exception
 org.h2.jdbc.JdbcSQLException: Data conversion error converting "'Flase' (STATUS BOOLEAN)"; SQL statement:
 INSERT INTO "PUBLIC"."TICKET"("ID","PRICE","PURCHASEDATE","STATUS","ANIMALZONE")VALUES(?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5) [22018-156]
+01-03 23:59:15 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'Adult' (DISCOUNT DOUBLE)"; SQL statement:
+INSERT INTO "PUBLIC"."GENERALDISCOUNTS"("ID","DISCOUNT")VALUES(?,?) -- (?1, ?2) [22018-156]
+01-03 23:59:15 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'Adult' (DISCOUNT DOUBLE)"; SQL statement:
+INSERT INTO "PUBLIC"."GENERALDISCOUNTS"("ID","DISCOUNT")VALUES(?,?) -- (?1, ?2) [22018-156]

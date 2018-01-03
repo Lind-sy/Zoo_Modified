@@ -24,12 +24,24 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "animalzone", nullable = false)
-    private AnimalZone animalZone;
+    public AnimalZone getTicketAnimalZone() {
+        return ticketAnimalZone;
+    }
 
-    @Column(name = "PURCHASEDATE")
-    private Date purchaseDate;
+    public void setTicketAnimalZone(AnimalZone ticketAnimalZone) {
+        this.ticketAnimalZone = ticketAnimalZone;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ticketAnimalZone", nullable = false)
+    private AnimalZone ticketAnimalZone;
+
+    @Column(name = "USAGEDATE")
+    private Date usageDate;
 
     public Set<SoldTickets> getSoldTickets() {
         return soldTickets;
@@ -50,7 +62,7 @@ public class Ticket {
 
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
-            mappedBy = "ticket")
+            mappedBy = "zooTicket")
     private Set<SoldTickets> soldTickets = new HashSet<>();
 
 
@@ -61,17 +73,17 @@ public class Ticket {
         this.id = id;
     }
 
-    public AnimalZone getAnimalZone() {
-        return animalZone;
-    }
+//    public AnimalZone getAnimalZone() {
+//        return animalZone;
+//    }
+//
+//    public void setAnimalZone(AnimalZone animalZone) {
+//        this.animalZone = animalZone;
+//    }
 
-    public void setAnimalZone(AnimalZone animalZone) {
-        this.animalZone = animalZone;
-    }
-
-    public void setPurchaseDate(Date purchaseDate) {
-        this.purchaseDate = purchaseDate;
-    }
+//    public void setPurchaseDate(Date purchaseDate) {
+//        this.purchaseDate = purchaseDate;
+//    }
 
     public void setPrice(double price) {
         this.price = price;
@@ -85,11 +97,18 @@ public class Ticket {
         return price;
     }
 
-    public Date getPurchaseDate() {
-        return purchaseDate;
+//    public Date getPurchaseDate() {
+//        return purchaseDate;
+//    }
+
+
+    public Date getUsageDate() {
+        return usageDate;
     }
 
-
+    public void setUsageDate(Date usageDate) {
+        this.usageDate = usageDate;
+    }
 
     public Boolean getStatus() {
         return isTicketValid();
@@ -105,7 +124,7 @@ public class Ticket {
      * @return true - if ticket is active, false - if ticket is not active
      */
     public boolean isTicketValid() {
-        if (purchaseDate != Calendar.getInstance().getTime()) {
+        if (usageDate != Calendar.getInstance().getTime()) {
             setStatus(true);
             return true;
         } else {

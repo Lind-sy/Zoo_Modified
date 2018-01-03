@@ -21,18 +21,26 @@ public class GeneralDiscounts {
     @Column(name = "DISCOUNT")
     private Double discount;
 
-    public Voucher getVoucher() {
-        return voucher;
+//    public Voucher getVoucher() {
+//        return voucher;
+//    }
+//
+
+    public Voucher getZooVoucher() {
+        return zooVoucher;
     }
 
-    public void setVoucher(Voucher voucher) {
-        this.voucher = voucher;
+    public void setZooVoucher(Voucher zooVoucher) {
+        this.zooVoucher = zooVoucher;
     }
+//    public void setVoucher(Voucher voucher) {
+//        this.voucher = voucher;
+//    }
 
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
-            mappedBy = "generalDiscounts")
-    private Voucher voucher;
+            mappedBy = "voucherGeneralDiscounts")
+    private Voucher zooVoucher;
 
     public Long getId() {
         return id;

@@ -25,17 +25,25 @@ public class Visitor{
 	@Column(name = "NAME")
 	private String name;
 
-	public HumanCatorgorys getHumanCategory() {
-		return humanCategory;
+//	public HumanCatorgorys getHumanCategory() {
+//		return humanCategory;
+//	}
+//
+//	public void setHumanCategory(HumanCatorgorys humanCategory) {
+//		this.humanCategory = humanCategory;
+//	}
+
+	public HumanCatorgorys getVisitorHumanCategory() {
+		return visitorHumanCategory;
 	}
 
-	public void setHumanCategory(HumanCatorgorys humanCategory) {
-		this.humanCategory = humanCategory;
+	public void setVisitorHumanCategory(HumanCatorgorys visitorHumanCategory) {
+		this.visitorHumanCategory = visitorHumanCategory;
 	}
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "humanCategory", nullable = false)
-	private HumanCatorgorys humanCategory;
+	@JoinColumn(name = "visitorHumanCategory", nullable = false)
+	private HumanCatorgorys visitorHumanCategory;
 
 	public Set<SoldTickets> getSoldTickets() {
 		return soldTickets;
@@ -55,12 +63,12 @@ public class Visitor{
 
 	@OneToMany(cascade = CascadeType.ALL,
 			fetch = FetchType.LAZY,
-			mappedBy = "visitor")
+			mappedBy = "zooSoldTicketVisitor")
 	private Set<SoldTickets> soldTickets = new HashSet<>();
 
 	@OneToMany(cascade = CascadeType.ALL,
 			fetch = FetchType.LAZY,
-			mappedBy = "visitor")
+			mappedBy = "zooVisitorOwner")
 	private Set<SoldVouchers> soldVouchers = new HashSet<>();
 
 	public Long getId() {
@@ -87,9 +95,9 @@ public class Visitor{
 //		this.category = category;
 //	}
 
-	public Visitor(String name, HumanCatorgorys humanCategory){
+	public Visitor(String name, HumanCatorgorys visitorHumanCategory){
 		this.name = name;
-		this.humanCategory = humanCategory;
+		this.visitorHumanCategory = visitorHumanCategory;
 	};
 
 	public Visitor(String name){

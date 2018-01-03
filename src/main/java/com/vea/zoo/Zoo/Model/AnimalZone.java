@@ -26,19 +26,27 @@ public class AnimalZone {
 
     }
 
-    public Ticket getTicket() {
-        return ticket;
+//    public Ticket getTicket() {
+//        return ticket;
+//
+//    }
+//
 
+    public Ticket getZooTicket() {
+        return zooTicket;
     }
 
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
+    public void setZooTicket(Ticket zooTicket) {
+        this.zooTicket = zooTicket;
     }
+//    public void setTicket(Ticket ticket) {
+//        this.ticket = ticket;
+//    }
 
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
-            mappedBy = "animalZone")
-    private Ticket ticket;
+            mappedBy = "ticketAnimalZone")
+    private Ticket zooTicket;
 
     public Long getId() {
         return id;

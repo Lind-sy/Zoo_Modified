@@ -10,16 +10,40 @@ public class SoldTickets {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    public Ticket getZooTicket() {
+        return zooTicket;
+    }
+
+    public void setZooTicket(Ticket zooTicket) {
+        this.zooTicket = zooTicket;
+    }
+
+    public Visitor getZooSoldTicketVisitor() {
+        return zooSoldTicketVisitor;
+    }
+
+    public void setZooSoldTicketVisitor(Visitor zooSoldTicketVisitor) {
+        this.zooSoldTicketVisitor = zooSoldTicketVisitor;
+    }
+
+//    public Visitor getZooVisitor() {
+//        return zooVisitor;
+//    }
+//
+//    public void setZooVisitor(Visitor zooVisitor) {
+//        this.zooVisitor = zooVisitor;
+//    }
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ticket", nullable = false)
-    private Ticket ticket;
+    @JoinColumn(name = "zooTicket", nullable = false)
+    private Ticket zooTicket;
 
     @Column(name = "PURCHASEDATE")
     private Date purchaseDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "visitor", nullable = false)
-    private Visitor visitor;
+    @JoinColumn(name = "zooSoldTicketVisitor", nullable = false)
+    private Visitor zooSoldTicketVisitor;
 
     public Long getId() {
         return id;
@@ -29,13 +53,13 @@ public class SoldTickets {
         this.id = id;
     }
 
-    public Ticket getTicket() {
-        return ticket;
-    }
-
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
-    }
+//    public Ticket getTicket() {
+//        return ticket;
+//    }
+//
+//    public void setTicket(Ticket ticket) {
+//        this.ticket = ticket;
+//    }
 
     public Date getPurchaseDate() {
         return purchaseDate;
@@ -45,13 +69,13 @@ public class SoldTickets {
         this.purchaseDate = purchaseDate;
     }
 
-    public Visitor getVisitor() {
-        return visitor;
-    }
-
-    public void setVisitor(Visitor visitor) {
-        this.visitor = visitor;
-    }
+//    public Visitor getVisitor() {
+//        return visitor;
+//    }
+//
+//    public void setVisitor(Visitor visitor) {
+//        this.visitor = visitor;
+//    }
 
 
     //    public SoldTickets(){}

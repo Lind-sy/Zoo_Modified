@@ -16,21 +16,29 @@ public class HumanCatorgorys {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	public Visitor getVisitor() {
-		return visitor;
-	}
-
-	public void setVisitor(Visitor visitor) {
-		this.visitor = visitor;
-	}
+//	public Visitor getVisitor() {
+//		return visitor;
+//	}
+//
+//	public void setVisitor(Visitor visitor) {
+//		this.visitor = visitor;
+//	}
 
 	@Column(name = "CATEGORY")
 	private String category;
 
+//	public Visitor getZooVisitor() {
+//		return zooVisitor;
+//	}
+//
+//	public void setZooVisitor(Visitor zooVisitor) {
+//		this.zooVisitor = zooVisitor;
+//	}
+
 	@OneToOne(fetch = FetchType.LAZY,
 			cascade =  CascadeType.ALL,
-			mappedBy = "humanCategory")
-	private Visitor visitor;
+			mappedBy = "visitorHumanCategory")
+	private Visitor zooHumanCategoryVisitor;
 
 	//private static final Map<String, String> categoryMap = defaultHumanCategoryMap();
 
@@ -39,6 +47,14 @@ public class HumanCatorgorys {
 	}
 	public Long getId() {
 		return id;
+	}
+
+	public Visitor getZooHumanCategoryVisitor() {
+		return zooHumanCategoryVisitor;
+	}
+
+	public void setZooHumanCategoryVisitor(Visitor zooHumanCategoryVisitor) {
+		this.zooHumanCategoryVisitor = zooHumanCategoryVisitor;
 	}
 
 	public void setId(Long id) {

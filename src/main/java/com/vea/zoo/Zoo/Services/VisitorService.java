@@ -34,7 +34,8 @@ public class VisitorService {
     }
 
     public void saveVisitor(String name, String humanCategory){
-        HumanCatorgorys h = (HumanCatorgorys) humanCategoryDao.findByCategory(humanCategory);
-        visitorDao.save(new Visitor(name,h));
+        List<HumanCatorgorys> h = (List<HumanCatorgorys>) humanCategoryDao.findByCategory(humanCategory);
+        final Visitor visitor = new Visitor(name,h.get(0));
+        visitorDao.save(visitor);
     }
 }

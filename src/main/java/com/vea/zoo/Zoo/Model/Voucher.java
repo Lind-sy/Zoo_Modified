@@ -20,9 +20,17 @@ public class Voucher {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    public GeneralDiscounts getVoucherGeneralDiscounts() {
+        return voucherGeneralDiscounts;
+    }
+
+    public void setVoucherGeneralDiscounts(GeneralDiscounts voucherGeneralDiscounts) {
+        this.voucherGeneralDiscounts = voucherGeneralDiscounts;
+    }
+
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "generaldiscount", nullable = false)
-    private GeneralDiscounts generalDiscounts;
+    @JoinColumn(name = "voucherGeneralDiscounts", nullable = false)
+    private GeneralDiscounts voucherGeneralDiscounts;
     @Column(name = "CODE")
     private String code;
 
@@ -31,13 +39,13 @@ public class Voucher {
 //        this.generalDiscounts = generalDiscounts;
 //    }
 
-    public GeneralDiscounts getGeneralDiscounts() {
-        return generalDiscounts;
-    }
-
-    public void setGeneralDiscounts(GeneralDiscounts generalDiscounts) {
-        this.generalDiscounts = generalDiscounts;
-    }
+//    public GeneralDiscounts getGeneralDiscounts() {
+//        return generalDiscounts;
+//    }
+//
+//    public void setGeneralDiscounts(GeneralDiscounts generalDiscounts) {
+//        this.generalDiscounts = generalDiscounts;
+//    }
 
     public void setCode(String code) {
         this.code = code;
@@ -56,7 +64,7 @@ public class Voucher {
     }
 
     public Voucher(Long discountType) {
-//        this.generalDiscounts = discountType;
+//       thus = discountType;
         this.code = genCode();
     }
 
