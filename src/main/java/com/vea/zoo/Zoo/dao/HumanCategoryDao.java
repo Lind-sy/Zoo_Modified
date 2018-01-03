@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface HumanCategoryDao  extends CrudRepository<HumanCatorgorys, Long> {
-    @Query("select c from HumanCatorgorys c where c.category = :category")
-    List<HumanCatorgorys> findByCategory(@Param("category") String category);
+    @Query("select c from HumanCatorgorys c where c.category = :humanCategory")
+    List<HumanCatorgorys> findByCategory(@Param("humanCategory") String humanCategory);
 }

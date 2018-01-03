@@ -24,12 +24,12 @@
     </tr>
 </table>
 
-<!--<h1>Form</h1>-->
-<!--<form action="#" th:action="@{/newVisitor/create}" th:object="${Visitor}" method="post">-->
-    <!--<p>Id: <input type="text" th:field="*{id}" /></p>-->
-    <!--<p>Message: <input type="text" th:field="*{content}" /></p>-->
-    <!--<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>-->
-<!--</form>-->
+<h1>Form</h1>
+<form action="#" th:action="@{/newVisitor/create}" th:object="${Visitor}" method="post">
+    <p>Name: <input type="text" th:field="*{name}" /></p>
+    <p>Category: <input type="text" th:field="*{humanCategory}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
 
 
 </body>

@@ -31,8 +31,8 @@ public class VisitorController {
     @RequestMapping(value = "/newVisitor/create", method = RequestMethod.POST)
     public ResponseEntity createVisitor(
             @RequestParam("name") final String name,
-            @RequestParam("category") final String category) {
-        visitorService.saveVisitor(name, category);
+            @RequestParam("humanCategory") final String humanCategory) {
+        visitorService.saveVisitor(name, humanCategory);
         return new ResponseEntity(HttpStatus.OK);
     }
 }

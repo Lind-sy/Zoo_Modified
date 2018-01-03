@@ -33,8 +33,8 @@ public class VisitorService {
         return (List<HumanCatorgorys>) humanCategoryDao.findAll();
     }
 
-    public void saveVisitor(String name, String category){
-        HumanCatorgorys h = (HumanCatorgorys) humanCategoryDao.findByCategory(category);
+    public void saveVisitor(String name, String humanCategory){
+        HumanCatorgorys h = (HumanCatorgorys) humanCategoryDao.findByCategory(humanCategory);
         visitorDao.save(new Visitor(name,h));
     }
 }
