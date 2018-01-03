@@ -1,16 +1,38 @@
 package com.vea.zoo.Zoo.contoller;
 
+import com.vea.zoo.Zoo.Services.SoldTicketService;
+import com.vea.zoo.Zoo.Services.VisitorService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class VisitorController {
-//    @Autowired
-//    private VisitorDao visitorDao;
-//
-//    @RequestMapping(value = "/newVisitoer", method = RequestMethod.POST)
-//    public ResponseEntity addTicket(@RequestParam("category") final String category,
-//                                    @RequestParam("name") final String name) {
-//      //  visitorDao.save(new Visitoer(zone, price));
-//        return new ResponseEntity(HttpStatus.OK);
-//    }
+
+    private VisitorService visitorService;
+
+    @Autowired
+    public VisitorController(final VisitorService visitorService) {
+        this.visitorService = visitorService;
+    }
+
+    @RequestMapping(value = "/visitorStatistic", method = RequestMethod.GET)
+    public String showAllVisitors(Model model) {
+        model.addAttribute("visitorList", visitorService.getAllVisitors());
+        return "visitorStatistic";
+    }
+
+    @RequestMapping(value = "/newVisitor/create", method = RequestMethod.POST)
+    public ResponseEntity createVisitor(
+            @RequestParam("name") final String name,
+            @RequestParam("category") final String category) {
+        visitorService.saveVisitor(name, category);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }

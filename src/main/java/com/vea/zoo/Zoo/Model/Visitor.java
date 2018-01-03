@@ -25,18 +25,17 @@ public class Visitor{
 	@Column(name = "NAME")
 	private String name;
 
-	public HumanCatorgorys getCategory() {
-
-		return category;
+	public HumanCatorgorys getHumanCategory() {
+		return humanCategory;
 	}
 
-	public void setCategory(HumanCatorgorys category) {
-		this.category = category;
+	public void setHumanCategory(HumanCatorgorys humanCategory) {
+		this.humanCategory = humanCategory;
 	}
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "category", nullable = false)
-	private HumanCatorgorys category;
+	@JoinColumn(name = "humanCategory", nullable = false)
+	private HumanCatorgorys humanCategory;
 
 	public Set<SoldTickets> getSoldTickets() {
 		return soldTickets;
@@ -88,9 +87,9 @@ public class Visitor{
 //		this.category = category;
 //	}
 
-	public Visitor(String name, HumanCatorgorys category){
+	public Visitor(String name, HumanCatorgorys humanCategory){
 		this.name = name;
-		this.category = category;
+		this.humanCategory = humanCategory;
 	};
 
 	public Visitor(String name){

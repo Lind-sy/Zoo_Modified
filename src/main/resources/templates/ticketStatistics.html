@@ -9,6 +9,7 @@
 <a href="/ticketSell">Sell Ticket</a>
 <a href="/ticketStatistics">Ticket Statistic</a>
 <a href="/gifts">Girft Shop</a>
+<a href="/visitorStatistic">Visitor</a>
 <div th:if="${ticketList.empty}">FOOD</div>
 <table>
     <thead>
@@ -17,7 +18,6 @@
         <td>Status</td>
         <td>Purchase Date</td>
     </thead>
-
     <tr th:each="t : ${ticketList}">
         <td th:text="${t.visitor.name}"></td>
         <td th:text="${t.ticket.animalZone.zone}"></td>

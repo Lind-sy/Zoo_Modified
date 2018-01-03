@@ -29,7 +29,7 @@ public class HumanCatorgorys {
 
 	@OneToOne(fetch = FetchType.LAZY,
 			cascade =  CascadeType.ALL,
-			mappedBy = "category")
+			mappedBy = "humanCategory")
 	private Visitor visitor;
 
 	//private static final Map<String, String> categoryMap = defaultHumanCategoryMap();

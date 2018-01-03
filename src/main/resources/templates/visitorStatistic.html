@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+</head>
+<body>
+
+<a href="/greeting">Home Page</a>
+<a href="/ticketSell">Sell Ticket</a>
+<a href="/ticketStatistics">Ticket Statistic</a>
+<a href="/gifts">Girft Shop</a>
+<a href="/visitorStatistic">Visitor</a>
+<div th:if="${visitorList.empty}">FOOD</div>
+<table>
+    <thead>
+    <td>Visitor</td>
+    <td>Tickets - zone </td>
+    <td>Status</td>
+    <td>Purchase Date</td>
+    </thead>
+    <tr th:each="visitor : ${visitorList}">
+        <td th:text="${visitor.name}"></td>
+        <td th:text="${visitor.humanCategory.category}"></td>
+    </tr>
+</table>
+
+<!--<h1>Form</h1>-->
+<!--<form action="#" th:action="@{/newVisitor/create}" th:object="${Visitor}" method="post">-->
+    <!--<p>Id: <input type="text" th:field="*{id}" /></p>-->
+    <!--<p>Message: <input type="text" th:field="*{content}" /></p>-->
+    <!--<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>-->
+<!--</form>-->
+
+
+</body>
+</html>
