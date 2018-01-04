@@ -38,4 +38,15 @@ public class VisitorService {
         final Visitor visitor = new Visitor(name,h.get(0));
         visitorDao.save(visitor);
     }
+
+    public void deleteVisitor(Long visitorId) {
+        visitorDao.delete(visitorId);
+    }
+
+//    public void updateVisitorCategory(String categoryName, Long id) {
+//        List<HumanCatorgorys> h = (List<HumanCatorgorys>) humanCategoryDao.findByCategory(categoryName);
+//        visitorDao.
+//
+//    }
+
 }

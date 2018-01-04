@@ -29,13 +29,16 @@ public class VisitorController {
     }
 //
     @RequestMapping(value = "/createVisitor", method = RequestMethod.POST)
-    public String createVisitor(
-            @RequestParam("name")
-            final String name,
-            @RequestParam("humanCategory")
+    public String createVisitor(@RequestParam("name") final String name, @RequestParam("humanCategory")
             final String humanCategory) {
         visitorService.saveVisitor(name, humanCategory);
         return "/createVisitor";
+    }
+
+    @RequestMapping(value = "/deleteVisitor", method = RequestMethod.POST)
+    public String deleteVisitor(@RequestParam("id") final Long visitorId){
+        visitorService.deleteVisitor(visitorId);
+        return "/deleteVisitor";
     }
 }
 
