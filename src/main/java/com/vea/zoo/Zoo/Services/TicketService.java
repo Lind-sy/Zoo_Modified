@@ -7,4 +7,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class TicketService {
 
+    private PriceCalculator priceCalculator;
+
+    @Autowired
+    public TicketService(final PriceCalculator priceCalculator) {
+        this.priceCalculator = priceCalculator;
+    }
 }

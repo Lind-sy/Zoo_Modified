@@ -1,29 +1,23 @@
 package com.vea.zoo.Zoo.contoller;
 
-import com.vea.zoo.Zoo.Model.AnimalZone;
-import com.vea.zoo.Zoo.Model.SoldTickets;
-import com.vea.zoo.Zoo.Services.AnimalZoneService;
 import com.vea.zoo.Zoo.Services.SoldTicketService;
-import com.vea.zoo.Zoo.dao.AnimalZoneDao;
-import com.vea.zoo.Zoo.dao.SoldTicketDao;
-import com.vea.zoo.Zoo.dao.TicketDao;
-import com.vea.zoo.Zoo.dao.VisitorDao;
+import com.vea.zoo.Zoo.Services.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class TicketController {
 
     private SoldTicketService soldTicketService;
+    private TicketService ticketService;
 
     @Autowired
-    public TicketController(final SoldTicketService soldTicketService) {
+    public TicketController(final SoldTicketService soldTicketService,
+                            final TicketService ticketService) {
         this.soldTicketService = soldTicketService;
+        this.ticketService = ticketService;
     }
 
     @RequestMapping(value = "/ticketStatistics", method = RequestMethod.GET)
@@ -31,11 +25,4 @@ public class TicketController {
         model.addAttribute("ticketList",soldTicketService.getActiveTickets());
         return "ticketStatistics";
     }
-
-    //Just an example how to create animal zone using controller
-//    @RequestMapping(value = "/ticketSell", method = RequestMethod.GET)
-//    public ResponseEntity addAnimalZone(@RequestParam("zone") final String zone) {
-//          animalZoneDao.save(new AnimalZone(zone));
-//        return new ResponseEntity(HttpStatus.OK);
-//    }
 }

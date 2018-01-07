@@ -1,8 +1,5 @@
 package com.vea.zoo.Zoo;
 
-import java.util.Iterator;
-import java.util.List;
-
 /**
  * @author Martins Buhanovskis
  * <p>
