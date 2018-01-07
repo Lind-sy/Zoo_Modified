@@ -54,17 +54,13 @@ public class Ticket {
     @Column(name = "PRICE")
     private Double price;
 
-
-
     @Column(name = "STATUS")
     private Boolean status;
-
 
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
             mappedBy = "zooTicket")
     private Set<SoldTickets> soldTickets = new HashSet<>();
-
 
     public Ticket(){
 

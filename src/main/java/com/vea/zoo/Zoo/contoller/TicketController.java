@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 @Controller
 public class TicketController {
 
@@ -25,4 +27,12 @@ public class TicketController {
         model.addAttribute("ticketList",soldTicketService.getActiveTickets());
         return "ticketStatistics";
     }
+
+    @RequestMapping(value = "/createTicket", method = RequestMethod.POST)
+    public String updateVisitor(@RequestParam("visitorId") final Long visitorId,
+                                @RequestParam("zoneName")String zoneName){
+        ticketService.createTicket(zoneName,visitorId);
+        return "/createTicket";
+    }
 }
+
