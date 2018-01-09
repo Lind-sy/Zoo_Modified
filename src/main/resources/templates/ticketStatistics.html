@@ -1,22 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-
-</head>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/default">
+<head th:replace="fragments/header :: head"></head>
 <body>
 
-<a href="/greeting">Home Page</a>
-<a href="/ticketSell">Sell Ticket</a>
-<a href="/ticketStatistics">Ticket Statistic</a>
-<a href="/gifts">Girft Shop</a>
-<a href="/visitorStatistic">Visitor</a>
-<div th:if="${ticketList.empty}">FOOD</div>
+<div th:replace="fragments/menu :: menu"></div>
+
+<div class="content">
 <table>
     <thead>
-        <td>Visitor</td>
-        <td>Tickets - zone </td>
-        <td>Status</td>
-        <td>Usage Date</td>
+    <td>Visitor</td>
+    <td>Tickets - zone </td>
+    <td>Status</td>
+    <td>Usage Date</td>
     </thead>
     <tr th:each="t : ${ticketList}">
         <td th:text="${t.zooSoldTicketVisitor.name}"></td>
@@ -25,5 +23,9 @@
         <td th:text="${t.zooTicket.usageDate}"></td>
     </tr>
 </table>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
 </body>
+
 </html>

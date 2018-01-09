@@ -1,0 +1,51 @@
+body {
+    font-size: 12px;
+    font-family: Arial;
+    margin: 0px;
+}
+
+.menu {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px #609a2a solid;
+    margin-bottom: 30px;
+}
+
+.menu a {
+    color: #609a2a;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-right: 25px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.menu a:hover {
+    color: #79c136;
+}
+
+.content {
+    padding: 15px;
+}
+
+.footer {
+    padding-left: 10px;
+    font-size: 10px;
+    color: #cccccc;
+    margin-top: 30px;
+}
+
+
+
+table thead td {
+
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #cccccc;
+    min-width: 100px;
+}
