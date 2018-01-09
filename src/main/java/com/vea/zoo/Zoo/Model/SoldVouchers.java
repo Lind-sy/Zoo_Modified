@@ -47,7 +47,6 @@ public class SoldVouchers {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-
     @JoinColumn(name = "zooVisitorOwner", nullable = false)
     private Visitor zooVisitorOwner;
 

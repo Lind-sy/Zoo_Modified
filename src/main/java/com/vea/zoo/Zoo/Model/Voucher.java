@@ -3,7 +3,9 @@ package com.vea.zoo.Zoo.Model;
 import com.vea.zoo.Zoo.Model.GeneralDiscounts;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 @Entity
 @Table(name = "VOUCHER")
@@ -34,6 +36,19 @@ public class Voucher {
     @Column(name = "CODE")
     private String code;
 
+
+    public Set<SoldVouchers> getSoldVouchers() {
+        return soldVouchers;
+    }
+
+    public void setSoldVouchers(Set<SoldVouchers> soldVouchers) {
+        this.soldVouchers = soldVouchers;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "zooVoucher")
+    private Set<SoldVouchers> soldVouchers = new HashSet<>();
 
 //    public void setGeneralDiscounts(Long generalDiscounts) {
 //        this.generalDiscounts = generalDiscounts;
