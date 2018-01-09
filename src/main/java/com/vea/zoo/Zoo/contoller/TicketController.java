@@ -35,6 +35,7 @@ public class TicketController {
         return "/createTicket";
     }
 
+    //Made For testing purposes - Service method could be used in ticket buying logic
     @RequestMapping(value = "/addSoldTickets", method = RequestMethod.POST)
     public String updateVisitor(@RequestParam("visitorId") final Long visitorId,
                                 @RequestParam("ticketId")final Long ticketId){

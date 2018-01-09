@@ -1,6 +1,7 @@
 package com.vea.zoo.Zoo.Model;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 @Entity
@@ -14,6 +15,7 @@ public class SoldTickets {
     public SoldTickets(Ticket ticket, Visitor visitor) {
         this.zooSoldTicketVisitor = visitor;
         this.zooTicket = ticket;
+        this.purchaseDate = new Timestamp(System.currentTimeMillis());
     }
 
     public Ticket getZooTicket() {
