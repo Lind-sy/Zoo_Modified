@@ -34,5 +34,13 @@ public class TicketController {
         ticketService.createTicket(zoneName,visitorId);
         return "/createTicket";
     }
+
+    @RequestMapping(value = "/addSoldTickets", method = RequestMethod.POST)
+    public String updateVisitor(@RequestParam("visitorId") final Long visitorId,
+                                @RequestParam("ticketId")final Long ticketId){
+        soldTicketService.saveSoldTicket(visitorId,ticketId);
+        return "/addSoldTickets";
+    }
+
 }
 

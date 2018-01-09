@@ -2,6 +2,7 @@ package com.vea.zoo.Zoo.Model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 @Entity
 @Table(name = "SOLDTICKETS")
 public class SoldTickets {
@@ -9,6 +10,11 @@ public class SoldTickets {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    public SoldTickets(Ticket ticket, Visitor visitor) {
+        this.zooSoldTicketVisitor = visitor;
+        this.zooTicket = ticket;
+    }
 
     public Ticket getZooTicket() {
         return zooTicket;
