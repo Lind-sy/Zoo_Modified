@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/header :: head"></head>
 <body>
-<!--<a href="/greeting">Home Page</a>-->
-<!--<a href="/ticketSell">Sell Ticket</a>-->
-<!--<a href="/ticketStatistics">Ticket Statistic</a>-->
-<!--<a href="/gifts">Girft Shop</a>-->
+
+<div th:replace="fragments/menu :: menu"></div>
 
 <!--<form action="#" th:action="@{/processForm}" th:object="${visitor}" method="post">-->
-    <!--<input type="text" th:field="*{bar}" />-->
-    <!--<input type="submit" />-->
+<!--<input type="text" th:field="*{bar}" />-->
+<!--<input type="submit" />-->
 <!--</form>-->
 
-
+<div th:replace="fragments/footer :: footer"></div>
 </body>
+
 </html>
