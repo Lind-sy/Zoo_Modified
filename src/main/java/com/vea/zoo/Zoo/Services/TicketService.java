@@ -7,6 +7,7 @@ import com.vea.zoo.Zoo.dao.TicketDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,6 +29,19 @@ public class TicketService {
 //TO DO...check if visitor already has this ticket and it is valid
     public void createTicket(String zoneName, Long visitorId){
 
+    }
+
+    /**
+     * Method that determind if ticket is valid
+     *
+     * @return true - if ticket is active, false - if ticket is not active
+     */
+    public boolean isTicketValid(Ticket ticket) {
+        if (ticket.getUsageDate() != Calendar.getInstance().getTime()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void setTicketStatusToFalse(Long visitorId){

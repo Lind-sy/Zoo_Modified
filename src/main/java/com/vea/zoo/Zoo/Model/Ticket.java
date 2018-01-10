@@ -114,20 +114,7 @@ public class Ticket {
         return id;
     }
 
-    /**
-     * Method that determind if ticket is valid
-     *
-     * @return true - if ticket is active, false - if ticket is not active
-     */
-    public boolean isTicketValid() {
-        if (usageDate != Calendar.getInstance().getTime()) {
-            setStatus(true);
-            return true;
-        } else {
-            setStatus(false);
-            return false;
-        }
-    }
+
 
 //    /**
 //     * Method that shows information about tickets zone and state
