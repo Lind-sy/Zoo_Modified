@@ -1,5 +1,6 @@
 package com.vea.zoo.Zoo.contoller;
 
+import com.vea.zoo.Zoo.Model.Visitor;
 import com.vea.zoo.Zoo.Services.TicketService;
 import com.vea.zoo.Zoo.Services.VisitorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +28,18 @@ public class VisitorController {
         return "visitorStatistic";
     }
 //
+
+    @GetMapping("/addVisitor")
+    public String visitorAddForm(Model model) {
+        model.addAttribute("visitor", new Visitor());
+        return "addVisitor";
+    }
+
     @RequestMapping(value = "/createVisitor", method = RequestMethod.POST)
-    public String createVisitor(@RequestParam("name") final String name, @RequestParam("humanCategory")
+    public String createVisitor(@RequestParam("name") final String name, @RequestParam("visitorHumanCategory")
             final String humanCategory) {
         visitorService.saveVisitor(name, humanCategory);
-        return "/createVisitor";
+        return "/visitorStatistic";
     }
 
     @RequestMapping(value = "/deleteVisitor", method = RequestMethod.POST)
