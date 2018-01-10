@@ -1,7 +1,5 @@
 package com.vea.zoo.Zoo.contoller;
 
-
-import com.vea.zoo.Zoo.Model.Ticket;
 import com.vea.zoo.Zoo.Services.TicketService;
 import com.vea.zoo.Zoo.Services.VisitorService;
 import org.springframework.beans.factory.annotation.Autowired;

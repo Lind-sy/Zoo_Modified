@@ -1,6 +1,4 @@
-/**
- *
- */
+
 package com.vea.zoo.Zoo.Model;
 
 import javax.persistence.*;
@@ -15,32 +13,16 @@ public class GeneralDiscounts {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    public GeneralDiscounts() {
-    }
-
     @Column(name = "DISCOUNT")
     private Double discount;
-
-//    public Voucher getVoucher() {
-//        return voucher;
-//    }
-//
-
-    public Voucher getZooVoucher() {
-        return zooVoucher;
-    }
-
-    public void setZooVoucher(Voucher zooVoucher) {
-        this.zooVoucher = zooVoucher;
-    }
-//    public void setVoucher(Voucher voucher) {
-//        this.voucher = voucher;
-//    }
 
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "voucherGeneralDiscounts")
     private Voucher zooVoucher;
+
+    public GeneralDiscounts() {
+    }
 
     public Long getId() {
         return id;
@@ -58,41 +40,11 @@ public class GeneralDiscounts {
         this.discount = discount;
     }
 
+    public Voucher getZooVoucher() {
+        return zooVoucher;
+    }
 
-//	private static Map<Integer,Double> discountMap = setAvailableDiscounts();
-//
-//	public Map<Integer, Double> getDiscountMap() {
-//		return discountMap;
-//	}
-//
-//	public int getDiscount() {
-//		return discount;
-//	}
-//
-//	public GeneralDiscounts(int discountType) {
-//		setDiscount(discountType);
-//	}
-//
-//
-//	public void setDiscount(int discount) {
-//		if (discountMap.isEmpty()) {
-//			throw new IllegalStateException("Discounts are not defined!");
-//		} else if (discountMap.containsKey(discount)) {
-//			this.discount = discount;
-//		} else if (!discountMap.containsKey(discount)) {
-//			throw new IllegalArgumentException("Such Discount does not exist");
-//		}
-//	}
-//
-//	/**
-//	 * Method that defines available discounts that can be applied for ticket price
-//	 * @return Map of defined discounts
-//	 */
-//	public static Map<Integer, Double> setAvailableDiscounts() {
-//		Map<Integer, Double> discountMap =  new HashMap<>();
-//		discountMap.put(10,0.10);
-//		discountMap.put(15,0.15);
-//		discountMap.put(20,0.20);
-//		return discountMap;
-//	}
+    public void setZooVoucher(Voucher zooVoucher) {
+        this.zooVoucher = zooVoucher;
+    }
 }

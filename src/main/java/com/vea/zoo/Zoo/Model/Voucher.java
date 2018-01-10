@@ -1,6 +1,5 @@
 package com.vea.zoo.Zoo.Model;
 
-import com.vea.zoo.Zoo.Model.GeneralDiscounts;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -10,80 +9,36 @@ import java.util.Set;
 @Entity
 @Table(name = "VOUCHER")
 public class Voucher {
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    public GeneralDiscounts getVoucherGeneralDiscounts() {
-        return voucherGeneralDiscounts;
-    }
-
-    public void setVoucherGeneralDiscounts(GeneralDiscounts voucherGeneralDiscounts) {
-        this.voucherGeneralDiscounts = voucherGeneralDiscounts;
-    }
-
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "voucherGeneralDiscounts", nullable = false)
     private GeneralDiscounts voucherGeneralDiscounts;
+
     @Column(name = "CODE")
     private String code;
-
-
-    public Set<SoldVouchers> getSoldVouchers() {
-        return soldVouchers;
-    }
-
-    public void setSoldVouchers(Set<SoldVouchers> soldVouchers) {
-        this.soldVouchers = soldVouchers;
-    }
 
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
             mappedBy = "zooVoucher")
     private Set<SoldVouchers> soldVouchers = new HashSet<>();
 
-//    public void setGeneralDiscounts(Long generalDiscounts) {
-//        this.generalDiscounts = generalDiscounts;
-//    }
-
-//    public GeneralDiscounts getGeneralDiscounts() {
-//        return generalDiscounts;
-//    }
-//
-//    public void setGeneralDiscounts(GeneralDiscounts generalDiscounts) {
-//        this.generalDiscounts = generalDiscounts;
-//    }
+    public Voucher() {
+        this.code = genCode();
+    }
 
     public void setCode(String code) {
         this.code = code;
     }
 
-     public Voucher() {
-
-    }
-
-//    public Long getGeneralDiscounts() {
-//        return generalDiscounts;
-//    }
-
     public String getCode() {
         return code;
     }
 
-    public Voucher(Long discountType) {
-//       thus = discountType;
-        this.code = genCode();
-    }
-
-    /**
+     /**
      * Method that generates voucher code form random letters and numbers
      * @return voucher code
      */
@@ -96,5 +51,28 @@ public class Voucher {
             sb.append(candidateChars.charAt(random.nextInt(candidateChars.length())));
         }
         return sb.toString();
+    }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public GeneralDiscounts getVoucherGeneralDiscounts() {
+        return voucherGeneralDiscounts;
+    }
+
+    public void setVoucherGeneralDiscounts(GeneralDiscounts voucherGeneralDiscounts) {
+        this.voucherGeneralDiscounts = voucherGeneralDiscounts;
+    }
+
+    public Set<SoldVouchers> getSoldVouchers() {
+        return soldVouchers;
+    }
+
+    public void setSoldVouchers(Set<SoldVouchers> soldVouchers) {
+        this.soldVouchers = soldVouchers;
     }
 }

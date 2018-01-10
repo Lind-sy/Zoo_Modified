@@ -1,10 +1,8 @@
 package com.vea.zoo.Zoo.Services;
 
-import com.vea.zoo.Zoo.Model.AnimalZone;
 import com.vea.zoo.Zoo.Model.SoldTickets;
 import com.vea.zoo.Zoo.Model.Ticket;
 import com.vea.zoo.Zoo.Model.Visitor;
-import com.vea.zoo.Zoo.dao.AnimalZoneDao;
 import com.vea.zoo.Zoo.dao.SoldTicketDao;
 import com.vea.zoo.Zoo.dao.TicketDao;
 import com.vea.zoo.Zoo.dao.VisitorDao;
