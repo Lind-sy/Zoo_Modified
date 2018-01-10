@@ -49,7 +49,7 @@ public class TicketService {
 
        List<Ticket> updatedTicketList  = ticketList.stream()
                 .filter(e -> (soldTickets.stream()
-                        .filter(d -> d.getZooTicket().getId().equals(e.getId()))
+                        .filter(d -> d.getSoldTicket().getId().equals(e.getId()))
                         .count())>0)
                 .collect(Collectors.toList());
 

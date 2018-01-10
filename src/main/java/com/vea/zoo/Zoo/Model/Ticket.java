@@ -36,7 +36,7 @@ public class Ticket {
 
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
-            mappedBy = "zooTicket")
+            mappedBy = "soldTicket")
     private Set<SoldTickets> soldTickets = new HashSet<>();
 
     public Ticket(){

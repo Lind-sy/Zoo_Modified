@@ -10,16 +10,12 @@
 <div class="content">
 <table>
     <thead>
-    <td>Visitor</td>
-    <td>Tickets - zone </td>
-    <td>Status</td>
-    <td>Purchase Date</td>
+    <td>Name</td>
+    <td>Category</td>
     </thead>
     <tr th:each="visitor : ${visitorList}">
         <td th:text="${visitor.name}"></td>
         <td th:text="${visitor.visitorHumanCategory.category}"></td>
-        <td></td>
-        <td></td>
     </tr>
 </table>
 </div>

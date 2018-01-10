@@ -13,8 +13,8 @@ public class SoldTickets {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "zooTicket", nullable = false)
-    private Ticket zooTicket;
+    @JoinColumn(name = "soldTicket", nullable = false)
+    private Ticket soldTicket;
 
     @Column(name = "PURCHASEDATE")
     private Date purchaseDate;
@@ -25,7 +25,13 @@ public class SoldTickets {
 
     public SoldTickets() {
     }
+    public Ticket getSoldTicket() {
+        return soldTicket;
+    }
 
+    public void setSoldTicket(Ticket soldTicket) {
+        this.soldTicket = soldTicket;
+    }
     public Long getId() {
         return id;
     }
@@ -44,16 +50,8 @@ public class SoldTickets {
 
     public SoldTickets(Ticket ticket, Visitor visitor) {
         this.zooSoldTicketVisitor = visitor;
-        this.zooTicket = ticket;
+        this.soldTicket = ticket;
         this.purchaseDate = new Timestamp(System.currentTimeMillis());
-    }
-
-    public Ticket getZooTicket() {
-        return zooTicket;
-    }
-
-    public void setZooTicket(Ticket zooTicket) {
-        this.zooTicket = zooTicket;
     }
 
     public Visitor getZooSoldTicketVisitor() {

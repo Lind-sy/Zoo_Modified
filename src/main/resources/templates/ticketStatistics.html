@@ -18,9 +18,9 @@
     </thead>
     <tr th:each="t : ${ticketList}">
         <td th:text="${t.zooSoldTicketVisitor.name}"></td>
-        <td th:text="${t.zooTicket.ticketAnimalZone.zone}"></td>
-        <td th:text="${t.zooTicket.status}"></td>
-        <td th:text="${t.zooTicket.usageDate}"></td>
+        <td th:text="${t.soldTicket.ticketAnimalZone.zone}"></td>
+        <td th:text="${t.soldTicket.status}"></td>
+        <td th:text="${t.soldTicket.usageDate}"></td>
     </tr>
 </table>
 </div>
