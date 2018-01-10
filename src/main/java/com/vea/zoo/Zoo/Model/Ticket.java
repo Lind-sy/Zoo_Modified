@@ -107,7 +107,7 @@ public class Ticket {
     }
 
     public Boolean getStatus() {
-        return isTicketValid();
+        return status;
     }
 
     public Long getId() {
