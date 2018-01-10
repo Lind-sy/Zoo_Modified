@@ -4,6 +4,9 @@
 package com.vea.zoo.Zoo.Model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author Martins Buhanovskis
@@ -18,10 +21,18 @@ public class AnimalZone {
     @Column(name = "ZONE")
     private String zone;
 
-    @OneToOne(fetch = FetchType.LAZY,
+    @OneToMany(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "ticketAnimalZone")
-    private Ticket zooTicket;
+    private Set<Ticket> zooTicket = new HashSet<>();
+
+    public Set<Ticket> getZooTicket() {
+        return zooTicket;
+    }
+
+    public void setZooTicket(Set<Ticket> zooTicket) {
+        this.zooTicket = zooTicket;
+    }
 
     public AnimalZone(String zone) {
         this.zone = zone;
@@ -45,11 +56,4 @@ public class AnimalZone {
         this.zone = zone;
     }
 
-    public Ticket getZooTicket() {
-        return zooTicket;
-    }
-
-    public void setZooTicket(Ticket zooTicket) {
-        this.zooTicket = zooTicket;
-    }
 }

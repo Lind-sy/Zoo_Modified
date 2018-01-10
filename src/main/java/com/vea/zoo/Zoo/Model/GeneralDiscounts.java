@@ -2,6 +2,8 @@
 package com.vea.zoo.Zoo.Model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Martins Buhanovskis
@@ -16,10 +18,10 @@ public class GeneralDiscounts {
     @Column(name = "DISCOUNT")
     private Double discount;
 
-    @OneToOne(fetch = FetchType.LAZY,
+    @OneToMany(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "voucherGeneralDiscounts")
-    private Voucher zooVoucher;
+    private Set<Voucher> zooVoucher = new HashSet<>();
 
     public GeneralDiscounts() {
     }
@@ -40,11 +42,11 @@ public class GeneralDiscounts {
         this.discount = discount;
     }
 
-    public Voucher getZooVoucher() {
+    public Set<Voucher> getZooVoucher() {
         return zooVoucher;
     }
 
-    public void setZooVoucher(Voucher zooVoucher) {
+    public void setZooVoucher(Set<Voucher> zooVoucher) {
         this.zooVoucher = zooVoucher;
     }
 }

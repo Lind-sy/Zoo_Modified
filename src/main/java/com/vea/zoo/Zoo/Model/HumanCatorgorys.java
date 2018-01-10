@@ -4,6 +4,9 @@
 package com.vea.zoo.Zoo.Model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author Martins Buhanovskis
@@ -19,26 +22,35 @@ public class HumanCatorgorys {
 	@Column(name = "CATEGORY")
 	private String category;
 
-	@OneToOne(fetch = FetchType.LAZY,
+	@OneToMany(fetch = FetchType.LAZY,
 			cascade =  CascadeType.ALL,
 			mappedBy = "visitorHumanCategory")
-	private Visitor zooHumanCategoryVisitor;
+	private Set<Visitor> zooHumanCategoryVisitor = new HashSet<>();
 
 	public HumanCatorgorys() {
 
+
+	}
+
+	public Set<Visitor> getZooHumanCategoryVisitor() {
+		return zooHumanCategoryVisitor;
+	}
+
+	public void setZooHumanCategoryVisitor(Set<Visitor> zooHumanCategoryVisitor) {
+		this.zooHumanCategoryVisitor = zooHumanCategoryVisitor;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public Visitor getZooHumanCategoryVisitor() {
-		return zooHumanCategoryVisitor;
-	}
-
-	public void setZooHumanCategoryVisitor(Visitor zooHumanCategoryVisitor) {
-		this.zooHumanCategoryVisitor = zooHumanCategoryVisitor;
-	}
+//	public Visitor getZooHumanCategoryVisitor() {
+//		return zooHumanCategoryVisitor;
+//	}
+//
+//	public void setZooHumanCategoryVisitor(Visitor zooHumanCategoryVisitor) {
+//		this.zooHumanCategoryVisitor = zooHumanCategoryVisitor;
+//	}
 
 	public void setId(Long id) {
 		this.id = id;

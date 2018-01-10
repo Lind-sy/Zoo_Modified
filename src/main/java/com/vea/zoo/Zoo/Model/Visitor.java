@@ -26,7 +26,7 @@ public class Visitor{
 	@Column(name = "NAME")
 	private String name;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "visitorHumanCategory", nullable = false)
 	private HumanCatorgorys visitorHumanCategory;
 

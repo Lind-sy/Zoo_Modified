@@ -14,7 +14,7 @@ public class Voucher {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "voucherGeneralDiscounts", nullable = false)
     private GeneralDiscounts voucherGeneralDiscounts;
 
