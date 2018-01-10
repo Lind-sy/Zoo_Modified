@@ -36,14 +36,6 @@ public class SoldTickets {
         this.zooSoldTicketVisitor = zooSoldTicketVisitor;
     }
 
-//    public Visitor getZooVisitor() {
-//        return zooVisitor;
-//    }
-//
-//    public void setZooVisitor(Visitor zooVisitor) {
-//        this.zooVisitor = zooVisitor;
-//    }
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "zooTicket", nullable = false)
     private Ticket zooTicket;
@@ -63,14 +55,6 @@ public class SoldTickets {
         this.id = id;
     }
 
-//    public Ticket getTicket() {
-//        return ticket;
-//    }
-//
-//    public void setTicket(Ticket ticket) {
-//        this.ticket = ticket;
-//    }
-
     public Date getPurchaseDate() {
         return purchaseDate;
     }
@@ -79,59 +63,4 @@ public class SoldTickets {
         this.purchaseDate = purchaseDate;
     }
 
-//    public Visitor getVisitor() {
-//        return visitor;
-//    }
-//
-//    public void setVisitor(Visitor visitor) {
-//        this.visitor = visitor;
-//    }
-
-
-    //    public SoldTickets(){}
-//
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    public Visitor getVisitor() {
-//        return visitor;
-//    }
-//
-//    public void setVisitor(Visitor visitor) {
-//        this.visitor = visitor;
-//    }
-
-
-//    public Ticket getTicket() {
-//        return ticket;
-//    }
-
-//    public void setTicket(Ticket ticket) {
-//        this.ticket = ticket;
-//    }
-
-
-//    public Date getPurchaseDate() {
-//        return purchaseDate;
-//    }
-
-//    public void setPurchaseDate(Date purchaseDate) {
-//        this.purchaseDate = purchaseDate;
-//    }
-
-//    public SoldTickets(Visitor visitor, Ticket ticket, Date purchaseDate) {
-//        this.visitor = visitor;
-//        this.ticket = ticket;
-//        this.purchaseDate = purchaseDate;
-//    }
-//
-//    public SoldTickets(Visitor visitor, Ticket ticket) {
-//        this.visitor = visitor;
-//        this.ticket = ticket;
-//    }
 }

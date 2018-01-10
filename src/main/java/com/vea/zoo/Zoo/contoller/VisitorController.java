@@ -1,6 +1,8 @@
 package com.vea.zoo.Zoo.contoller;
 
 
+import com.vea.zoo.Zoo.Model.Ticket;
+import com.vea.zoo.Zoo.Services.TicketService;
 import com.vea.zoo.Zoo.Services.VisitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,10 +14,13 @@ import org.springframework.web.bind.annotation.*;
 public class VisitorController {
 
     private VisitorService visitorService;
+    private TicketService ticketService;
 
     @Autowired
-    public VisitorController(final VisitorService visitorService) {
+    public VisitorController(final VisitorService visitorService,
+                             final TicketService ticketService) {
         this.visitorService = visitorService;
+        this.ticketService = ticketService;
     }
 
     @RequestMapping(value = "/visitorStatistic", method = RequestMethod.GET)
@@ -33,6 +38,7 @@ public class VisitorController {
 
     @RequestMapping(value = "/deleteVisitor", method = RequestMethod.POST)
     public String deleteVisitor(@RequestParam("id") final Long visitorId){
+        ticketService.setTicketStatusToFalse(visitorId);
         visitorService.deleteVisitor(visitorId);
         return "/deleteVisitor";
     }
