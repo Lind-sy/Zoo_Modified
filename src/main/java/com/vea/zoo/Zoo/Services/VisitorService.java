@@ -3,6 +3,7 @@ package com.vea.zoo.Zoo.Services;
 import com.vea.zoo.Zoo.Model.HumanCatorgorys;
 import com.vea.zoo.Zoo.Model.Visitor;
 import com.vea.zoo.Zoo.dao.HumanCategoryDao;
+import com.vea.zoo.Zoo.dao.SoldTicketDao;
 import com.vea.zoo.Zoo.dao.VisitorDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,15 @@ public class VisitorService {
 
     private VisitorDao visitorDao;
     private HumanCategoryDao humanCategoryDao;
+    private SoldTicketDao soldTicketDao;
 
     @Autowired
     public VisitorService( final VisitorDao visitorDao,
-                           final HumanCategoryDao humanCategoryDao) {
+                           final HumanCategoryDao humanCategoryDao,
+                           final SoldTicketDao soldTicketDao) {
         this.visitorDao = visitorDao;
         this.humanCategoryDao = humanCategoryDao;
+        this.soldTicketDao = soldTicketDao;
     }
 
     public List<Visitor> getAllVisitors(){
@@ -37,6 +41,7 @@ public class VisitorService {
     }
 
     public void deleteVisitor(Long visitorId) {
+        soldTicketDao.delete(soldTicketDao.findByVisitorId(visitorId));
         visitorDao.delete(visitorId);
     }
 

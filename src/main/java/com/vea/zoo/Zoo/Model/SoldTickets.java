@@ -7,6 +7,8 @@ import java.util.List;
 @Entity
 @Table(name = "SOLDTICKETS")
 public class SoldTickets {
+    public SoldTickets() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
