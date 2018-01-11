@@ -39,9 +39,11 @@ public class TicketController {
         boolean canBuyTicket = ticketService.canBuyTicket(visitorId,zoneName);
         if(canBuyTicket == true){
             ticketService.createTicket(zoneName,visitorId);
+            return "/createTicket";
         }else{
+            return "/errorPage";
         }
-        return "/createTicket";
+
     }
 
     @RequestMapping(value = "/createTicketWithVoucher", method = RequestMethod.POST)
@@ -52,9 +54,10 @@ public class TicketController {
         if(canBuyTicket == true && hasVoucher == true){
             ticketService.createTicketWithVoucher(zoneName,visitorId,code);
             soldVoucherService.deleteUsedVoucher(visitorId, code);
+            return "/createTicketWithVoucher";
         }else{
+            return "/errorPage";
         }
-        return "/createTicketWithVoucher";
     }
 
 

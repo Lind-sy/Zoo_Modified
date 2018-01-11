@@ -28,7 +28,7 @@ public class HumanCatorgorys {
 	private Set<Visitor> zooHumanCategoryVisitor = new HashSet<>();
 
 	public HumanCatorgorys() {
-		
+
 	}
 
 	public Set<Visitor> getZooHumanCategoryVisitor() {
