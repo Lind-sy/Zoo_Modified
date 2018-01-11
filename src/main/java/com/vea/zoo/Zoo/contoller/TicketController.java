@@ -50,8 +50,8 @@ public class TicketController {
         boolean canBuyTicket = ticketService.canBuyTicket(visitorId,zoneName);
         boolean hasVoucher = soldVoucherService.hasVoucher(visitorId, code);
         if(canBuyTicket == true && hasVoucher == true){
-            soldVoucherService.deleteUsedVoucher(visitorId, code);
             ticketService.createTicketWithVoucher(zoneName,visitorId,code);
+            soldVoucherService.deleteUsedVoucher(visitorId, code);
         }else{
         }
         return "/createTicketWithVoucher";

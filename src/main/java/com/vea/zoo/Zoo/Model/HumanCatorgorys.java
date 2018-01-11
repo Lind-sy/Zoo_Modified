@@ -28,8 +28,7 @@ public class HumanCatorgorys {
 	private Set<Visitor> zooHumanCategoryVisitor = new HashSet<>();
 
 	public HumanCatorgorys() {
-
-
+		
 	}
 
 	public Set<Visitor> getZooHumanCategoryVisitor() {
@@ -43,14 +42,6 @@ public class HumanCatorgorys {
 	public Long getId() {
 		return id;
 	}
-
-//	public Visitor getZooHumanCategoryVisitor() {
-//		return zooHumanCategoryVisitor;
-//	}
-//
-//	public void setZooHumanCategoryVisitor(Visitor zooHumanCategoryVisitor) {
-//		this.zooHumanCategoryVisitor = zooHumanCategoryVisitor;
-//	}
 
 	public void setId(Long id) {
 		this.id = id;
