@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @Service
 public class TicketService {
 
-    private PriceCalculator priceCalculator = new PriceCalculator();
+    public PriceCalculator priceCalculator = new PriceCalculator();
     private TicketDao ticketDao;
     private SoldTicketDao soldTicketDao;
     private AnimalZoneDao animalZoneDao;
