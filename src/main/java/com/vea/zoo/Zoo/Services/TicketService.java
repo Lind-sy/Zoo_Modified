@@ -1,9 +1,7 @@
 package com.vea.zoo.Zoo.Services;
 
-import com.vea.zoo.Zoo.Model.SoldTickets;
-import com.vea.zoo.Zoo.Model.Ticket;
-import com.vea.zoo.Zoo.dao.SoldTicketDao;
-import com.vea.zoo.Zoo.dao.TicketDao;
+import com.vea.zoo.Zoo.Model.*;
+import com.vea.zoo.Zoo.dao.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,26 +12,47 @@ import java.util.stream.Collectors;
 @Service
 public class TicketService {
 
-    private PriceCalculator priceCalculator;
+    private PriceCalculator priceCalculator = new PriceCalculator();
     private TicketDao ticketDao;
     private SoldTicketDao soldTicketDao;
+    private AnimalZoneDao animalZoneDao;
+    private VisitorDao visitorDao;
+    private VoucherDao voucherDao;
     @Autowired
-    public TicketService(final PriceCalculator priceCalculator,
-                         final TicketDao ticketDao,
-                         final SoldTicketDao soldTicketDao) {
-        this.priceCalculator = priceCalculator;
+    public TicketService(final TicketDao ticketDao,
+                         final SoldTicketDao soldTicketDao,
+                         final  AnimalZoneDao animalZoneDao,
+                         final VisitorDao visitorDao,
+                         final VoucherDao voucherDao) {
+//        this.priceCalculator = priceCalculator;
         this.ticketDao = ticketDao;
         this.soldTicketDao = soldTicketDao;
-    }
-
-//TO DO...check if visitor already has this ticket and it is valid
-    public void createTicket(String zoneName, Long visitorId){
-
+        this.animalZoneDao = animalZoneDao;
+        this.visitorDao = visitorDao;
+        this.voucherDao = voucherDao;
     }
 
     //TO DO...check if visitor already has this ticket and it is valid
-    public void createTicketWithVoucher(String zoneName, Long visitorId, String code){
+    public Ticket createTicket(String zoneName, Long visitorId){
+        Visitor visitor = visitorDao.findOne(visitorId);
+        priceCalculator.calculateTotalPriceWithoutVoucher(visitor, zoneName);
+        Double price = priceCalculator.totalPrice;
+        Ticket ticket = new Ticket(animalZoneDao.findByZone(zoneName).get(0), price);
+        ticketDao.save(ticket);
+        List<Ticket> ticketList = ticketDao.findAllSorted();
+        return ticketList.get(0);
+    }
 
+    //TO DO...check if visitor already has this ticket and it is valid
+    public Ticket createTicketWithVoucher(String zoneName, Long visitorId, String code){
+        Visitor visitor = visitorDao.findOne(visitorId);
+        Voucher voucher = voucherDao.findByCode(code).get(0);
+        priceCalculator.calculateTotalPriceWithVoucher(visitor,zoneName,voucher);
+        Double price = priceCalculator.totalPrice;
+        Ticket ticket = new Ticket(animalZoneDao.findByZone(zoneName).get(0), price);
+        ticketDao.save(ticket);
+        List<Ticket> ticketList = ticketDao.findAllSorted();
+        return ticketList.get(0);
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.vea.zoo.Zoo.Model;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.*;
 
 /**
@@ -42,6 +43,13 @@ public class Ticket {
     public Ticket(){
 
     }
+
+    public Ticket(AnimalZone ticketAnimalZone, Double price) {
+        this.status = true;
+        this.usageDate = new Timestamp(System.currentTimeMillis());
+        this.ticketAnimalZone = ticketAnimalZone;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

@@ -4,10 +4,10 @@ import com.vea.zoo.Zoo.Model.Visitor;
 import com.vea.zoo.Zoo.Model.Voucher;
 import org.springframework.stereotype.Service;
 
-@Service
 public class PriceCalculator implements PriceCalculationService {
 
-    public static double totalPrice;
+
+    public static Double totalPrice;
 
     @Override
     public void calculateBasePrice(String zone) {

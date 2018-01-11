@@ -1,5 +1,6 @@
 package com.vea.zoo.Zoo.contoller;
 
+import com.vea.zoo.Zoo.Model.Ticket;
 import com.vea.zoo.Zoo.Services.SoldTicketService;
 import com.vea.zoo.Zoo.Services.SoldVoucherService;
 import com.vea.zoo.Zoo.Services.TicketService;
@@ -38,12 +39,12 @@ public class TicketController {
                                @RequestParam("zoneName")String zoneName){
         boolean canBuyTicket = ticketService.canBuyTicket(visitorId,zoneName);
         if(canBuyTicket == true){
-            ticketService.createTicket(zoneName,visitorId);
+            Ticket ticket = ticketService.createTicket(zoneName,visitorId);
+            soldTicketService.saveSoldTicket(visitorId,ticket);
             return "/createTicket";
         }else{
             return "/errorPage";
         }
-
     }
 
     @RequestMapping(value = "/createTicketWithVoucher", method = RequestMethod.POST)
@@ -58,15 +59,6 @@ public class TicketController {
         }else{
             return "/errorPage";
         }
-    }
-
-
-    //Made For testing purposes - Service method could be used in ticket buying logic
-    @RequestMapping(value = "/addSoldTickets", method = RequestMethod.POST)
-    public String saveSoldTicket(@RequestParam("visitorId") final Long visitorId,
-                                @RequestParam("ticketId")final Long ticketId){
-        soldTicketService.saveSoldTicket(visitorId,ticketId);
-        return "/addSoldTickets";
     }
 }
 

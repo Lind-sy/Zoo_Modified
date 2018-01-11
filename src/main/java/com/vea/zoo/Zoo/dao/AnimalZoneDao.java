@@ -10,5 +10,6 @@ import java.util.List;
 
 @Repository
 public interface AnimalZoneDao  extends CrudRepository<AnimalZone, Long> {
-
+    @Query("select c from AnimalZone c where c.zone =:zone")
+    List<AnimalZone> findByZone(@Param("zone") String zone);
 }

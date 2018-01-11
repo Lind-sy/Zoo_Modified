@@ -29,8 +29,7 @@ public class SoldTicketService {
         return (List<SoldTickets>) soldTicketDao.findAllActiveTickets();
     }
 
-    public void saveSoldTicket(Long visitorId, Long ticketId){
-        Ticket ticket = (Ticket) ticketDao.findOne(ticketId);
+    public void saveSoldTicket(Long visitorId, Ticket ticket){
         Visitor visitor = (Visitor) visitorDao.findOne(visitorId);
         soldTicketDao.save(new SoldTickets(ticket ,visitor));
     }
