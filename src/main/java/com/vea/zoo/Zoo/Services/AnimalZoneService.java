@@ -16,13 +16,11 @@ public class AnimalZoneService{
     public AnimalZoneService( final AnimalZoneDao animalZoneDao) {
         this.animalZoneDao = animalZoneDao;
     }
-
-    public  List<AnimalZone> getAnimalZones(){
-       return (List<AnimalZone>) animalZoneDao.findAll();
-    }
-
     public void createAnimalZone(String zoneName){
         final AnimalZone animalZone = new AnimalZone(zoneName);
         animalZoneDao.save(animalZone);
+    }
+    public List<AnimalZone> returnAllAnimalZones(){
+        return (List<AnimalZone>) animalZoneDao.findAll();
     }
 }

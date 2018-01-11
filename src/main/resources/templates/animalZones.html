@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/header :: head"></head>
+<body>
+
+<div th:replace="fragments/menu :: menu"></div>
+
+<div class="content">
+    <table>
+        <thead>
+        <td>ID</td>
+        <td>Zone Name</td>
+        </thead>
+        <tr th:each="animalzone : ${animalzoneList}">
+            <td th:text="${animalzone.id}"></td>
+            <!--td th:text="${animalzone.name}"></td-->
+        </tr>
+    </table>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+
+</html>
