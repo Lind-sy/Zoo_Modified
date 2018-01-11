@@ -31,6 +31,11 @@ public class TicketService {
 
     }
 
+    //TO DO...check if visitor already has this ticket and it is valid
+    public void createTicketWithVoucher(String zoneName, Long visitorId, String code){
+
+    }
+
     /**
      * Method that determind if ticket is valid
      * @return true - if ticket is active, false - if ticket is not active

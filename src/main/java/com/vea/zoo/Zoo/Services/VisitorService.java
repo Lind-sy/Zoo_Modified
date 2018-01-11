@@ -1,6 +1,7 @@
 package com.vea.zoo.Zoo.Services;
 
 import com.vea.zoo.Zoo.Model.HumanCatorgorys;
+import com.vea.zoo.Zoo.Model.SoldVouchers;
 import com.vea.zoo.Zoo.Model.Visitor;
 import com.vea.zoo.Zoo.dao.HumanCategoryDao;
 import com.vea.zoo.Zoo.dao.SoldTicketDao;
@@ -9,6 +10,7 @@ import com.vea.zoo.Zoo.dao.VisitorDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Id;
 import java.util.List;
 
 @Service
