@@ -41,7 +41,7 @@ public class TicketService {
      * @return true - if ticket is active, false - if ticket is not active
      */
     public boolean isTicketValid(Ticket ticket) {
-        if (ticket.getUsageDate() != Calendar.getInstance().getTime()) {
+        if (ticket.getUsageDate().equals(Calendar.getInstance().getTime())) {
             return true;
         } else {
             return false;
