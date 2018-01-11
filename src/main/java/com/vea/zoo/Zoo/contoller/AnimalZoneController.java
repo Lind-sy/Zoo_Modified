@@ -17,10 +17,11 @@ public class AnimalZoneController {
     public AnimalZoneController(final AnimalZoneService animalZoneService) {
         this.animalZoneService = animalZoneService;
     }
+
     @RequestMapping(value = "/animalZones", method = RequestMethod.GET)
     public String animalZones(Model model) {
-        model.addAttribute("animalzoneList",animalZoneService.returnAllAnimalZones());
-        return "animalZones";
+        model.addAttribute("animalzoneList", animalZoneService.returnAllAnimalZones());
+        return "/animalZones";
     }
 
     @RequestMapping(value = "/addAnimalZone", method = RequestMethod.GET)
@@ -28,9 +29,10 @@ public class AnimalZoneController {
         model.addAttribute("animalzone", new AnimalZone());
         return "addAnimalZone";
     }
+
     @RequestMapping(value = "/createAnimalZone", method = RequestMethod.POST)
-    public String createAnimalZone(@RequestParam("zone") final String zoneName){
+    public String createAnimalZone(@RequestParam("zone") final String zoneName) {
         animalZoneService.createAnimalZone(zoneName);
-        return "animalZones";
+        return "/animalZones";
     }
 }

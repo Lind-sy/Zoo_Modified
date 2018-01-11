@@ -15,10 +15,15 @@
         </thead>
         <tr th:each="animalzone : ${animalzoneList}">
             <td th:text="${animalzone.id}"></td>
-            <!--td th:text="${animalzone.name}"></td-->
+            <td th:text="${animalzone.zone}"></td>
         </tr>
     </table>
+    <form action="/addAnimalZone">
+        <input type="submit" value="Add an Animal Zone" />
+    </form>
 </div>
+
+
 
 <div th:replace="fragments/footer :: footer"></div>
 </body>
