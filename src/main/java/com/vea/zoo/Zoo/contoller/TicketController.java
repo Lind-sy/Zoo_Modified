@@ -29,15 +29,30 @@ public class TicketController {
     }
 
     @RequestMapping(value = "/createTicket", method = RequestMethod.POST)
-    public String updateVisitor(@RequestParam("visitorId") final Long visitorId,
-                                @RequestParam("zoneName")String zoneName){
-        ticketService.createTicket(zoneName,visitorId);
+    public String createTicket(@RequestParam("visitorId") final Long visitorId,
+                               @RequestParam("zoneName")String zoneName){
+        boolean canBuyTicket = ticketService.canBuyTicket(visitorId,zoneName);
+        if(canBuyTicket == true){
+            ticketService.createTicket(zoneName,visitorId);
+        }else{
+        }
         return "/createTicket";
     }
+    @RequestMapping(value = "/createTicketWithVoucher", method = RequestMethod.POST)
+    public String createTicketWithVoucher(@RequestParam("visitorId") final Long visitorId,
+                               @RequestParam("zoneName")String zoneName, @RequestParam("voucherCode")String code){
+        boolean canBuyTicket = ticketService.canBuyTicket(visitorId,zoneName);
+        if(canBuyTicket == true){
+            ticketService.createTicket(zoneName,visitorId);
+        }else{
+        }
+        return "/createTicketWithVoucher";
+    }
+
 
     //Made For testing purposes - Service method could be used in ticket buying logic
     @RequestMapping(value = "/addSoldTickets", method = RequestMethod.POST)
-    public String updateVisitor(@RequestParam("visitorId") final Long visitorId,
+    public String saveSoldTicket(@RequestParam("visitorId") final Long visitorId,
                                 @RequestParam("ticketId")final Long ticketId){
         soldTicketService.saveSoldTicket(visitorId,ticketId);
         return "/addSoldTickets";

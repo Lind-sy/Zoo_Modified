@@ -43,17 +43,34 @@ public class TicketService {
         }
     }
 
-    public void setTicketStatusToFalse(Long visitorId){
-       List<SoldTickets> soldTickets = soldTicketDao.findByVisitorId(visitorId);
-       List<Ticket> ticketList = (List<Ticket>) ticketDao.findAll();
+    public boolean canBuyTicket(Long visitorId, String animalZone){
+        List<Ticket> boughtTicketList  = getVisitorsBoughtTickets(visitorId);
+        for (Ticket t: boughtTicketList
+             ) {
+            if((t.getStatus() == true && isTicketValid(t)) && t.getTicketAnimalZone().getZone().equals(animalZone)){
+            return false;
+            }
+        }
+        return true;
+    }
 
-       List<Ticket> updatedTicketList  = ticketList.stream()
+    public void setTicketStatusToFalse(Long visitorId){
+
+       List<Ticket> updatedTicketList  = getVisitorsBoughtTickets(visitorId);
+       updatedTicketList.forEach(t -> t.setStatus(false));
+       ticketDao.save(updatedTicketList);
+    }
+
+    public List<Ticket> getVisitorsBoughtTickets(Long visitorId){
+        List<SoldTickets> soldTickets = soldTicketDao.findByVisitorId(visitorId);
+        List<Ticket> ticketList = (List<Ticket>) ticketDao.findAll();
+
+        List<Ticket> visitorsTickets  = ticketList.stream()
                 .filter(e -> (soldTickets.stream()
                         .filter(d -> d.getSoldTicket().getId().equals(e.getId()))
                         .count())>0)
                 .collect(Collectors.toList());
 
-       updatedTicketList.forEach(t -> t.setStatus(false));
-       ticketDao.save(updatedTicketList);
+        return visitorsTickets;
     }
 }

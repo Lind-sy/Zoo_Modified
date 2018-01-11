@@ -27,7 +27,6 @@ public class VisitorController {
         model.addAttribute("visitorList", visitorService.getAllVisitors());
         return "visitorStatistic";
     }
-//
 
     @GetMapping("/addVisitor")
     public String visitorAddForm(Model model) {
