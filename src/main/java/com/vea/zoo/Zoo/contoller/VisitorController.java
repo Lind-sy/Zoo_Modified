@@ -31,6 +31,7 @@ public class VisitorController {
 
     @GetMapping("/addVisitor")
     public String visitorAddForm(Model model) {
+        model.addAttribute("humanCategoryList", visitorService.getAllCategorys());
         model.addAttribute("visitor", new Visitor());
         return "addVisitor";
     }
