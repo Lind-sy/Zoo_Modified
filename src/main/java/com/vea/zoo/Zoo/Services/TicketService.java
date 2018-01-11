@@ -5,6 +5,7 @@ import com.vea.zoo.Zoo.dao.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -60,7 +61,7 @@ public class TicketService {
      * @return true - if ticket is active, false - if ticket is not active
      */
     public boolean isTicketValid(Ticket ticket) {
-        if (ticket.getUsageDate().equals(Calendar.getInstance().getTime())) {
+        if (ticket.getUsageDate().equals(new Timestamp(System.currentTimeMillis()).toLocalDateTime().toLocalDate())) {
             return true;
         } else {
             return false;

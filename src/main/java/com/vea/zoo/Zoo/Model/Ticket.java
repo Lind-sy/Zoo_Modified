@@ -2,6 +2,7 @@ package com.vea.zoo.Zoo.Model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.*;
 
 /**
@@ -27,7 +28,7 @@ public class Ticket {
     private AnimalZone ticketAnimalZone;
 
     @Column(name = "USAGEDATE")
-    private Date usageDate;
+    private LocalDate usageDate;
 
     @Column(name = "PRICE")
     private Double price;
@@ -46,7 +47,7 @@ public class Ticket {
 
     public Ticket(AnimalZone ticketAnimalZone, Double price) {
         this.status = true;
-        this.usageDate = new Timestamp(System.currentTimeMillis());
+        this.usageDate = new Timestamp(System.currentTimeMillis()).toLocalDateTime().toLocalDate();
         this.ticketAnimalZone = ticketAnimalZone;
     }
 
@@ -66,11 +67,11 @@ public class Ticket {
         return price;
     }
 
-    public Date getUsageDate() {
+    public LocalDate getUsageDate() {
         return usageDate;
     }
 
-    public void setUsageDate(Date usageDate) {
+    public void setUsageDate(LocalDate usageDate) {
         this.usageDate = usageDate;
     }
 
