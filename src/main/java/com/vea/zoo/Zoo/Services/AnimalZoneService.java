@@ -20,4 +20,9 @@ public class AnimalZoneService{
     public  List<AnimalZone> getAnimalZones(){
        return (List<AnimalZone>) animalZoneDao.findAll();
     }
+
+    public void createAnimalZone(String zoneName){
+        final AnimalZone animalZone = new AnimalZone(zoneName);
+        animalZoneDao.save(animalZone);
+    }
 }

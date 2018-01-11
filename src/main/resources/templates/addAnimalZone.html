@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/header :: head"></head>
+<body>
+
+<div th:replace="fragments/menu :: menu"></div>
+
+<form action="#" th:action="@{/createAnimalZone}" th:object="${animalzone}" method="post">
+    <p>Category Name: <input type="text" th:field="*{zone}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+
+</html>
