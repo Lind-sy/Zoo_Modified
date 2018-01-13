@@ -49,6 +49,7 @@ public class Ticket {
         this.status = true;
         this.usageDate = new Timestamp(System.currentTimeMillis()).toLocalDateTime().toLocalDate();
         this.ticketAnimalZone = ticketAnimalZone;
+        this.price = price;
     }
 
     public void setId(Long id) {
