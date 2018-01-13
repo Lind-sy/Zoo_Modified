@@ -36,8 +36,7 @@ public class TicketService {
     //TO DO...check if visitor already has this ticket and it is valid
     public Ticket createTicket(String zoneName, Long visitorId){
         Visitor visitor = visitorDao.findOne(visitorId);
-        priceCalculator.calculateTotalPriceWithoutVoucher(visitor, zoneName);
-        Double price = priceCalculator.totalPrice;
+        Double price =  priceCalculator.calculateTotalPriceWithoutVoucher(visitor, zoneName);
         Ticket ticket = new Ticket(animalZoneDao.findByZone(zoneName).get(0), price);
         ticketDao.save(ticket);
         List<Ticket> ticketList = ticketDao.findAllSorted();
@@ -48,8 +47,7 @@ public class TicketService {
     public Ticket createTicketWithVoucher(String zoneName, Long visitorId, String code){
         Visitor visitor = visitorDao.findOne(visitorId);
         Voucher voucher = voucherDao.findByCode(code).get(0);
-        priceCalculator.calculateTotalPriceWithVoucher(visitor,zoneName,voucher);
-        Double price = priceCalculator.totalPrice;
+        Double price =  priceCalculator.calculateTotalPriceWithVoucher(visitor,zoneName,voucher);
         Ticket ticket = new Ticket(animalZoneDao.findByZone(zoneName).get(0), price);
         ticketDao.save(ticket);
         List<Ticket> ticketList = ticketDao.findAllSorted();
