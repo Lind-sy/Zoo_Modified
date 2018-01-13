@@ -22,6 +22,7 @@ For web service we will work also with the additional requests:
 - [x] Human statuss: adults, school-age children, pre-school-aged children, seniors, students, persons with a disability. <i>(test version)</i>
 
 
+
  Bonus Nonsense
 - [x] incomplete
 - [ ] completed
